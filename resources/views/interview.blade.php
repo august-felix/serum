@@ -239,17 +239,8 @@
                             <div class="card-body bg-gray-100">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="title">Credits Available</div>
-                                        <div class="mt-3"><span class="sub-content">Physicians -</span> Maximum of 0.25 AMA PRA Category 1 Credit(s)</div>
-                                        <div class="mt-3"><span class="sub-content">ABIM Diplomates -</span>Maximum of 0.25 ABIM MOC points</div>
-                                        <div class="mt-3"><span class="sub-content">Nurses -</span>Maximum of 0.25 ANCC Contact Hours</div>
-                                        <div class="mt-3"><span class="sub-content">Pharmacists -</span>Maximum of 0.25 PRA Category 1 Credit(s)</div>
-                                        <div class="mt-3"><span class="sub-content">IPCE -</span>0.25 IPCE Interprofessional Education</div>
-                                        <div class="title mt-3">Eligibility</div>
-                                        <div class="mt-3"><span class="sub-content">Letter -</span>Upon Completion you will receive a letter of completion</div>
-                                        <div class="mt-5">
-                                            <a href="{{ route('interview') }}" class="btn btn-primary py-3">Start Activity</a>
-                                        </div>
+                                        <div class="title">Interview</div>
+
                                     </div>
                                 </div>
                             </div>
@@ -258,10 +249,8 @@
                 </div>
             </div>
             <!-- /.container-fluid -->
-
         </div>
         <!-- End of Main Content -->
-
         <!-- Footer -->
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">

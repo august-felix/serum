@@ -11,4 +11,10 @@ class IndexController extends Controller{
     public function interview(){
         return view('interview');
     }
+    public function introduction(){
+        return view('introduction');
+    }
+    public function tests(){
+        return view('tests');
+    }
 }

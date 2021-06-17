@@ -380,6 +380,8 @@ h3, .h3 {
 
 h4, .h4 {
     font-size: 1.5rem;
+    font-weight: bold;
+    color: #0000008c;
 }
 
 h5, .h5 {
@@ -11370,7 +11372,7 @@ a:focus {
         display: block;
         width: 100%;
         text-align: left;
-        padding: 1rem;
+        padding: 1.5rem;
         width: 14rem;
     }
 
@@ -12142,4 +12144,8 @@ body.sidebar-toggled footer.sticky-footer {
 .sub-content {
     font-size: 16px;
     font-weight: 700;
+}
+.main-section{
+    max-height: 60vh;
+    overflow: auto;
 }

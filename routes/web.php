@@ -16,3 +16,6 @@ use App\Http\Controllers\IndexController;
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/interview',[IndexController::class, 'interview'])->name('interview');
+Route::get('/introduction',[IndexController::class, 'introduction'])->name('introduction');
+Route::get('/tests',[IndexController::class, 'tests'])->name('tests');
+Route::get('/upload', [IndexController::class, 'upload'])->name('upload');

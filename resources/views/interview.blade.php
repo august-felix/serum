@@ -1,11 +1,9 @@
 @extends('app')
 @section('header_style')
     <style>
-
         .progressbar {
-            /*counter-reset: step;*/
+            counter-reset: step;
         }
-
         .progressbar li {
             list-style-type: none;
             width: 12%;
@@ -17,11 +15,11 @@
         }
 
         .progressbar li:before {
-            width: 30px;
-            height: 30px;
-            /*content: counter(step);*/
-            /*counter-increment: step;*/
-            line-height: 30px;
+            content: counter(step);
+            counter-increment: step;
+            width: 50px;
+            height: 50px;
+            line-height: 47px;
             border: 2px solid #7d7d7d;
             display: block;
             text-align: center;
@@ -32,29 +30,38 @@
 
         .progressbar li:after {
             width: 100%;
-            height: 2px;
+            height: 6px;
             content: '';
             position: absolute;
-            background-color: #ff0000;
-            top: 50px;
+            background-color: #858796;
+            top: 22px;
             z-index: -1;
+        }
+        .progressbar li a {
+            color: #858796;
         }
 
         .progressbar li:last-child:after {
             content: none;
         }
-
-        .progressbar li.active {
-            color: green;
+        .progressbar li.active::before {
+            border: 3px solid #6bc5d0;
+        }
+        .progressbar li.active a {
+            color: #6bc5d0;
+            font-weight: bold;
+        }
+        .progressbar li.active img{
+            border: 5px solid #6bc5d0;
         }
 
-        .progressbar li.active:before {
-            border-color: #55b776;
+        .progressbar li.active::after {
+            background-color: #6bc5d0;
         }
 
-        .progressbar li.active + li:after {
-            background-color: #55b776;
-        }
+        /*.progressbar li.active + li:after {*/
+        /*    background-color: #55b776;*/
+        /*}*/
         .progressbar li img{
             border-radius: 50px;
         }
@@ -109,38 +116,7 @@
             </div>
         </div>
     </div>
-    <div class="row mt-5">
-        <div class="col-md-11">
-            <ul class="progressbar">
-                <li class="active">
-                    <img class="mb-4" src="{{ asset('img/interview.jpg') }}" width="100px"/>
-                    <p>Interview</p>
-                </li>
-                <li>
-                    <img class="mb-4" src="{{ asset('img/interview.jpg') }}" width="100px"/>
-                    <p>Introduction</p>
-                </li>
-                <li>
-                    <img class="mb-4" src="{{ asset('img/interview.jpg') }}" width="100px"/>
-                    <p>Tests</p>
-                </li>
-                <li>
-                    <img class="mb-4" src="{{ asset('img/interview.jpg') }}" width="100px"/>
-                    <p>Diagnosis
-                    </p>
-                </li>
-                <li><img class="mb-4" src="{{ asset('img/interview.jpg') }}" width="100px"/>
-                    <p>Orders</p></li>
-                <li><img class="mb-4" src="{{ asset('img/interview.jpg') }}" width="100px"/>
-                    <p>Quz</p></li>
-                <li><img class="mb-4" src="{{ asset('img/interview.jpg') }}" width="100px"/>
-                    <p>Case Review</p></li>
-            </ul>
-        </div>
-        <div class="col-md-1 d-flex justify-content-end align-items-center">
-            <button class="btn btn-primary py-3">Continue</button>
-        </div>
-    </div>
+    @include('stepbar')
 @endsection()
 @section('footer_script')
 @endsection()

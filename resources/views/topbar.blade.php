@@ -8,7 +8,7 @@
 
     <!-- Topbar Search -->
     <a class="w-100">
-        <img src="{{asset('img/full-logo.png')}}" width="200" />
+        <img src="{{asset('img/full-logo.PNG')}}" width="200" />
     </a>
     <form
         class="d-none d-sm-inline-block form-inline my-2 my-md-0 mw-100 navbar-search">

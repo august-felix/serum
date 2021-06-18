@@ -44,7 +44,7 @@
         </a>
     </li>
     <li class="nav-item active">
-        <a class="nav-link d-flex justify-content-center  align-items-center flex-column" href="tables/">
+        <a class="nav-link d-flex justify-content-center  align-items-center flex-column" href="{{route('upload')}}">
             <i class="fas fa-address-card"></i>
             <span>Card</span>
         </a>

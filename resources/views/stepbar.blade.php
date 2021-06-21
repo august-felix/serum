@@ -11,7 +11,7 @@
             </li>
             <li class="@if(Route::current()->getName() === 'tests') active @endif">
 {{--                <img class="mb-4" src="{{ asset('img/interview.jpg') }}" width="100px"/>--}}
-                <a class="d-flex align-items-center justify-content-around" href="{{route('interview')}}">Tests</a>
+                <a class="d-flex align-items-center justify-content-around" href="{{route('tests')}}">Tests</a>
             </li>
             <li class="@if(Route::current()->getName() === 'diagnosis') active @endif">
 {{--                <img class="mb-4" src="{{ asset('img/interview.jpg') }}" width="100px"/>--}}

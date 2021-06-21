@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="320942b7-a4f6-491d-af50-4e393dca1fb8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/tests.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/upload.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/view.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/interview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/interview.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/introduction.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/introduction.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/slider.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/slider.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/stepbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/stepbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/topbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/topbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/tests.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tests.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/upload.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/upload.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -176,7 +173,8 @@
       <workItem from="1623817013091" duration="5316000" />
       <workItem from="1623852640685" duration="1191000" />
       <workItem from="1623893352622" duration="12448000" />
-      <workItem from="1623990007689" duration="3885000" />
+      <workItem from="1623990007689" duration="3888000" />
+      <workItem from="1624196831807" duration="12756000" />
     </task>
     <servers />
   </component>

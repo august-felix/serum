@@ -2,10 +2,9 @@
 
 
 namespace App\Http\Controllers;
-use App\Http\Controllers\Controller;
 use App\Models\Diagnosis;
-use App\Models\Project;
 use App\Models\Test;
+use App\Models\TestData;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller{
@@ -17,12 +16,17 @@ class IndexController extends Controller{
         return view('interview', compact( 'next'));
     }
     public function introduction(){
-        $next = 'tests';
+        $next = 'quz-tests';
         return view('introduction', compact( 'next'));
     }
     public function tests(){
         $next = 'diagnosis';
-        return view('tests', compact( 'next'));
+        $returndata = [];
+        $testData = TestData::all();
+        foreach ($testData as $data) {
+            array_push($returndata, $data->test);
+        }
+        return view('tests', compact( 'next', 'returndata'));
     }
     public function upload(){
         return view('upload');
@@ -85,4 +89,23 @@ class IndexController extends Controller{
             ->get();
         return response()->json($tests);
     }
+
+    public function saveTest(Request $request){
+        $id = $request->id;
+        $existData = TestData::where('test_id', $id)->get();
+        $returndata = [];
+        if(count($existData) == 0) {
+            $data = array(
+                'test_id' => $id
+            );
+            TestData::create($data);
+        }
+        $testData = TestData::all();
+        foreach ($testData as $data) {
+            array_push($returndata, $data->test);
+        }
+        return response()->json($returndata);
+    }
+
+
 }

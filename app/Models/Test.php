@@ -15,4 +15,8 @@ class Test extends Model
     {
         return $this->belongsTo(Project::class);
     }
+    public function datas()
+    {
+        return $this->hasMany(TestData::class);
+    }
 }

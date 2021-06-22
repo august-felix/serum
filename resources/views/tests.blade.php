@@ -4,6 +4,7 @@
         .progressbar {
             counter-reset: step;
         }
+
         .progressbar li {
             list-style-type: none;
             width: 12%;
@@ -37,6 +38,7 @@
             top: 22px;
             z-index: -1;
         }
+
         .progressbar li a {
             color: #858796;
         }
@@ -44,14 +46,17 @@
         .progressbar li:last-child:after {
             content: none;
         }
+
         .progressbar li.active::before {
             border: 3px solid #6bc5d0;
         }
+
         .progressbar li.active a {
             color: #6bc5d0;
             font-weight: bold;
         }
-        .progressbar li.active img{
+
+        .progressbar li.active img {
             border: 5px solid #6bc5d0;
         }
 
@@ -62,10 +67,11 @@
         /*.progressbar li.active + li:after {*/
         /*    background-color: #55b776;*/
         /*}*/
-        .progressbar li img{
+        .progressbar li img {
             border-radius: 50px;
         }
-        #result{
+
+        #result {
             position: absolute;
             top: 90px;
             right: 15px;
@@ -74,15 +80,18 @@
             border-radius: 5px;
             display: none;
         }
+
         #result div {
             line-height: 1.5;
             padding: 10px;
         }
+
         #result div:hover {
             background: whitesmoke;
 
         }
-        .card{
+
+        .card {
             min-height: 60vh;
         }
     </style>
@@ -102,11 +111,25 @@
 
                             </div>
                             <div class="table-responsive">
-                                <table class="table table-striped bordered table-hover">
+                                <table class="table bordered table-hover">
                                     <thead>
                                     <th>Name</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
                                     <th>Action</th>
                                     </thead>
+                                    <tbody id="tableBody">
+                                        <?php foreach($returndata as $data) { ?>
+                                            <tr>
+                                                <td>{{$data->name}}</td>
+                                                <td>{{$data->prompt}}</td>
+                                                <td>{{$data->result1}}</td>
+                                                <td>{{$data->result2}}</td>
+                                                <td><i class="fa fa-trash"></i></td>
+                                            </tr>
+                                        <?php } ?>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -119,28 +142,40 @@
 @endsection()
 @section('footer_script')
     <script type="text/javascript">
-        $('#search').on('input', function(){
+        $('#search').on('input', function () {
             var keyvalue = $(this).val();
             $.ajax({
-                type:'POST',
-                url:'/search',
+                type: 'POST',
+                url: '/search',
                 data: {"_token": "{{ csrf_token() }}", key: keyvalue},
-                success:function(data) {
+                success: function (data) {
                     $('#result').show();
                     var body = "";
 
-                    for(var i = 0; i < data.length; i ++){
-                        var content = '<div class="mt-2 item" data-id="'+ data[i]['id'] +'">' + data[i]['name'] + '</div>';
+                    for (var i = 0; i < data.length; i++) {
+                        var content = '<div class="mt-2 item" data-id="' + data[i]['id'] + '">' + data[i]['name'] + '</div>';
                         body += content;
                     }
                     $('#result').html(body);
-                    $('.item').click(function(){
-                        alert("sdfsdf");
-                    })
                 }
             });
         })
-        $('#search').focusout(function(){
+        $(document).on("click", "div.item", function () {
+            var id = $(this).data("id");
+            console.log(id);
+            $.ajax({
+                type: 'POST',
+                url: '/saveTest',
+                data: {"_token": '{{csrf_token()}}', id: id},
+                success: function(data) {
+                    $('#tableBody').empty();
+                    for(var i = 0; i < data.length; i ++){
+                        var content = '<tr><td>'+ data[i]['name']+'</td><td>Delete</td></tr>'
+                        $('#tableBody').append(content);
+                    }
+                    console.log(data);
+                }
+            });
             $('#result').hide();
         });
     </script>

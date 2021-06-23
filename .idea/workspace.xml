@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="320942b7-a4f6-491d-af50-4e393dca1fb8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/case.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Test.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Test.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/test.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/test.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/interview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/interview.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/introduction.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/introduction.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/quiz.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/quiz.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/stepbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/stepbar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/tests.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tests.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -20,6 +25,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/august-felix/serum" />
+      </set>
+    </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -178,7 +190,8 @@
       <workItem from="1624244248284" duration="23000" />
       <workItem from="1624252373836" duration="2617000" />
       <workItem from="1624303122231" duration="1368000" />
-      <workItem from="1624326532179" duration="6660000" />
+      <workItem from="1624326532179" duration="13783000" />
+      <workItem from="1624365592483" duration="10164000" />
     </task>
     <servers />
   </component>

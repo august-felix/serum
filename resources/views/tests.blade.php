@@ -73,7 +73,7 @@
 
         #result {
             position: absolute;
-            top: 90px;
+            top: 165px;
             right: 15px;
             left: 15px;
             border: 1px solid #d1d3e2;
@@ -104,6 +104,11 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="title">Tests</div>
+                            <div class="mt-3">
+                                <audio controls>
+                                    <source src="https://serum-myeloma.s3.amazonaws.com/Audio/08.mp3" type="audio/mp3">
+                                </audio>
+                            </div>
                             <div class="form-group">
                                 <input class="form-control" type="text" name="search" id="search"/>
                             </div>
@@ -126,7 +131,7 @@
                                                 <td>{{$data->prompt}}</td>
                                                 <td>{{$data->result1}}</td>
                                                 <td>{{$data->result2}}</td>
-                                                <td><i class="fa fa-trash"></i></td>
+                                                <td class="text-center"><a href="/deleteTest/{{$data->id}}"><i class="fa fa-trash"></i></a></td>
                                             </tr>
                                         <?php } ?>
                                     </tbody>
@@ -151,7 +156,6 @@
                 success: function (data) {
                     $('#result').show();
                     var body = "";
-
                     for (var i = 0; i < data.length; i++) {
                         var content = '<div class="mt-2 item" data-id="' + data[i]['id'] + '">' + data[i]['name'] + '</div>';
                         body += content;
@@ -170,7 +174,13 @@
                 success: function(data) {
                     $('#tableBody').empty();
                     for(var i = 0; i < data.length; i ++){
-                        var content = '<tr><td>'+ data[i]['name']+'</td><td>Delete</td></tr>'
+                        var content = `<tr>
+                                            <td>${data[i]['name']}</td>
+                                            <td>${data[i]['prompt']}</td>
+                                            <td>${data[i]['result1']}</td>
+                                            <td>${data[i]['result2']}</td>
+                                            <td class="text-center"><a href="/deleteTest/${data[i]["id"]}"><i class="fa fa-trash"></i></a></td>
+                                       </tr>`;
                         $('#tableBody').append(content);
                     }
                     console.log(data);

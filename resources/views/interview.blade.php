@@ -76,6 +76,11 @@
                         <div class="col-md-8">
                             <div class="title">Interview</div>
                             <div class="mt-3">
+                                <audio controls>
+                                    <source src="https://serum-myeloma.s3.amazonaws.com/Audio/07.mp3" type="audio/mp3">
+                                </audio>
+                            </div>
+                            <div class="mt-3">
                                 <h4>History of presenting illness</h4>
                                 <p>Sarah is a 70-year-old woman presenting with fatigue and lower back pain. These
                                     symptoms both began at the same time about 6 months ago and have both been

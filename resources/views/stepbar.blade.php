@@ -23,11 +23,11 @@
             </li>
             <li class="@if(Route::current()->getName() === 'quz') active @endif">
 {{--                <img class="mb-4" src="{{ asset('img/interview.jpg') }}" width="100px"/>--}}
-                <a class="d-flex align-items-center justify-content-around" href="{{route('interview')}}">Quz</a>
+                <a class="d-flex align-items-center justify-content-around" href="{{route('quz')}}">Quiz</a>
             </li>
             <li class="@if(Route::current()->getName() === 'review') active @endif">
 {{--                <img class="mb-4" src="{{ asset('img/interview.jpg') }}" width="100px"/>--}}
-                <a class="d-flex align-items-center justify-content-around" href="{{route('interview')}}">Case Review</a>
+                <a class="d-flex align-items-center justify-content-around" href="{{route('caseInterview')}}">Case Review</a>
             </li>
         </ul>
     </div>

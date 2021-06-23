@@ -1,313 +1,281 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('app')
+@section('header_style')
+    <style>
+        .progressbar {
+            counter-reset: step;
+        }
 
-<head>
+        .progressbar li {
+            list-style-type: none;
+            width: 12%;
+            float: left;
+            font-size: 18px;
+            position: relative;
+            text-align: center;
+            z-index: 0;
+        }
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+        .progressbar li:before {
+            content: counter(step);
+            counter-increment: step;
+            width: 50px;
+            height: 50px;
+            line-height: 47px;
+            border: 2px solid #7d7d7d;
+            display: block;
+            text-align: center;
+            margin: 0 auto 10px auto;
+            border-radius: 50%;
+            background-color: white;
+        }
 
-    <title>SEREM</title>
+        .progressbar li:after {
+            width: 100%;
+            height: 6px;
+            content: '';
+            position: absolute;
+            background-color: #858796;
+            top: 22px;
+            z-index: -1;
+        }
 
-    <!-- Custom fonts for this template-->
-    <link href="{{ asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-    <!-- Custom styles for this template-->
-    <link href="{{ asset('css/sb-admin-2.css') }}" rel="stylesheet">
-</head>
+        .progressbar li a {
+            color: #858796;
+        }
 
-<body id="page-top">
+        .progressbar li:last-child:after {
+            content: none;
+        }
 
-<!-- Page Wrapper -->
-<div id="wrapper">
-    <!-- Sidebar -->
-    <ul class="navbar-nav bg-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
+        .progressbar li.active::before {
+            border: 3px solid #6bc5d0;
+        }
 
-        <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-            <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laugh-wink"></i>
-            </div>
-            <div class="sidebar-brand-text mx-3">SERU<sup>M</sup></div>
-        </a>
+        .progressbar li.active a {
+            color: #6bc5d0;
+            font-weight: bold;
+        }
 
-        <!-- Divider -->
-        <hr class="sidebar-divider my-0">
+        .progressbar li.active img {
+            border: 5px solid #6bc5d0;
+        }
 
-        <li class="nav-item active">
-            <a class="nav-link" href="/">
-                <i class="fas fa-user-alt"></i>
-                {{--                <span>Dashboard</span>--}}
-            </a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="/">
-                <i class="fas fa-building"></i>
-                {{--                <span>Charts</span>--}}
-            </a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="tables/">
-                <i class="fas fa-clipboard"></i>
-                {{--                <span>Tables</span>--}}
-            </a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="tables/">
-                <i class="fas fa-shield-alt"></i>
-                {{--                <span>Tables</span>--}}
-            </a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="tables/">
-                <i class="fas fa-plus-square"></i>
-                {{--                <span>Tables</span>--}}
-            </a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="tables/">
-                <i class="fas fa-address-card"></i>
-                {{--                <span>Tables</span>--}}
-            </a>
-        </li>
-        <!-- Divider -->
-        <hr class="sidebar-divider d-none d-md-block">
+        .progressbar li.active::after {
+            background-color: #6bc5d0;
+        }
 
-        <!-- Sidebar Toggler (Sidebar) -->
-        <div class="text-center d-none d-md-inline">
-            <button class="rounded-circle border-0" id="sidebarToggle"></button>
-        </div>
+        /*.progressbar li.active + li:after {*/
+        /*    background-color: #55b776;*/
+        /*}*/
+        .progressbar li img {
+            border-radius: 50px;
+        }
 
-    </ul>
-    <!-- End of Sidebar -->
+        #result {
+            position: absolute;
+            top: 90px;
+            right: 15px;
+            left: 15px;
+            border: 1px solid #d1d3e2;
+            border-radius: 5px;
+            display: none;
+        }
 
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
+        #result div {
+            line-height: 1.5;
+            padding: 10px;
+        }
 
-        <!-- Main Content -->
-        <div id="content" class="bg-gray-100">
+        #result div:hover {
+            background: whitesmoke;
 
-            <!-- Topbar -->
-            <nav class="navbar navbar-expand justify-content-end navbar-light bg-white topbar mb-1 static-top">
+        }
 
-                <!-- Sidebar Toggle (Topbar) -->
-                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                    <i class="fa fa-bars"></i>
-                </button>
+        .card {
+            min-height: 60vh;
+        }
+        .question{
+            list-style-type: none;
+        }
+        .question li:hover h5 {
+            color: #6bc5d0;
+            cursor: pointer;
+        }
+        .question li:hover button {
+            background: #6bc5d0;
+            border-color: #6bc5d0;
+        }
 
-                <!-- Topbar Search -->
-                <a class="w-100">
-                    <h1 class="m-0">SEREM</h1>
-                </a>
-                <form
-                    class="d-none d-sm-inline-block form-inline my-2 my-md-0 mw-100 navbar-search">
-                    <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                               aria-label="Search" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-light" type="button">
-                                <i class="fas fa-search fa-sm"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
+    </style>
+@endsection()
+@section('content')
 
-                <!-- Topbar Navbar -->
-                <ul class="navbar-nav">
-                    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                    <li class="nav-item dropdown no-arrow d-sm-none">
-                        <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-search fa-fw"></i>
-                        </a>
-                        <!-- Dropdown - Messages -->
-                        <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                             aria-labelledby="searchDropdown">
-                            <form class="form-inline mr-auto w-100 navbar-search">
-                                <div class="input-group">
-                                    <input type="text" class="form-control bg-light border-0 small"
-                                           placeholder="Search for..." aria-label="Search"
-                                           aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button">
-                                            <i class="fas fa-search fa-sm"></i>
-                                        </button>
+    <div class="row pt-5">
+        <div class="col-md-12 main-section">
+            <div class="card border-0">
+                <div class="card-body bg-gray-100">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="title">QUIZ</div>
+
+                            <div class="mt-4">
+                                <div class="d-flex align-items-center">
+                                    <h5>Question 1 of 5</h5>
+                                    <div>
+                                        <audio controls>
+                                            <source src="https://serum-myeloma.s3.amazonaws.com/Audio/03.mp3" type="audio/mp3">
+                                        </audio>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
-                    </li>
-
-                    <!-- Nav Item - Alerts -->
-                    <li class="nav-item dropdown no-arrow mx-1">
-                        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-bell fa-fw"></i>
-                            <!-- Counter - Alerts -->
-                            {{--                            <span class="badge badge-danger badge-counter">3+</span>--}}
-                        </a>
-                        <!-- Dropdown - Alerts -->
-                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                             aria-labelledby="alertsDropdown">
-                            <h6 class="dropdown-header">
-                                Alerts Center
-                            </h6>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <div class="mr-3">
-                                    <div class="icon-circle bg-primary">
-                                        <i class="fas fa-file-alt text-white"></i>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="small text-gray-500">December 12, 2019</div>
-                                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                                </div>
-                            </a>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <div class="mr-3">
-                                    <div class="icon-circle bg-success">
-                                        <i class="fas fa-donate text-white"></i>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="small text-gray-500">December 7, 2019</div>
-                                    $290.29 has been deposited into your account!
-                                </div>
-                            </a>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <div class="mr-3">
-                                    <div class="icon-circle bg-warning">
-                                        <i class="fas fa-exclamation-triangle text-white"></i>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="small text-gray-500">December 2, 2019</div>
-                                    Spending Alert: We've noticed unusually high spending for your account.
-                                </div>
-                            </a>
-                            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-                        </div>
-                    </li>
-
-                    <div class="topbar-divider d-none d-sm-block"></div>
-
-                    <!-- Nav Item - User Information -->
-                    <li class="nav-item dropdown no-arrow">
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                            <img class="img-profile rounded-circle"
-                                 src="img/undraw_profile.svg">
-                        </a>
-                        <!-- Dropdown - User Information -->
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                             aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Profile
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Settings
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Activity Log
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Logout
-                            </a>
-                        </div>
-                    </li>
-
-                </ul>
-
-            </nav>
-            <!-- End of Topbar -->
-
-            <!-- Begin Page Content -->
-            <div class="container-fluid bg-white h-100">
-                <div class="row pt-5">
-                    <div class="col-md-12">
-                        <div class="card border-0">
-                            <div class="card-body bg-gray-100">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="title">Interview</div>
-
-                                    </div>
-                                </div>
+                                <hr>
+                                <ul class="question">
+                                    <li class="d-flex align-items-center mb-3">
+                                        <button class="btn btn-secondary">A</button>
+                                        <h5 class="m-0 px-3">Skeletal survey with conventional X-ray</h5>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <button class="btn btn-secondary">B</button>
+                                        <h5 class="m-0 px-3">Whole body low dose CT</h5>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <button class="btn btn-secondary">C</button>
+                                        <h5 class="m-0 px-3">Fluorodeoxyglucose (FDG)-positron emission tomography (PET)/CT</h5>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <button class="btn btn-secondary">D</button>
+                                        <h5 class="m-0 px-3">B and C only </h5>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <button class="btn btn-secondary">E</button>
+                                        <h5 class="m-0 px-3">A, B, and C</h5>
+                                    </li>
+                                </ul>
                             </div>
+                            <div class="mt-4">
+                                <div class="d-flex align-items-center">
+                                    <h5>Question 2 of 5</h5>
+                                    <div>
+                                        <audio controls>
+                                            <source src="https://serum-myeloma.s3.amazonaws.com/Audio/05.mp3" type="audio/mp3">
+                                        </audio>
+                                    </div>
+                                </div>
+                                <hr>
+                                <ul class="question">
+                                    <li class="d-flex align-items-center mb-3">
+                                        <button class="btn btn-secondary">A</button>
+                                        <h5 class="m-0 px-3">Bisphosphonates or denosumab</h5>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <button class="btn btn-secondary">B</button>
+                                        <h5 class="m-0 px-3">Erythropoietin</h5>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <button class="btn btn-secondary">C</button>
+                                        <h5 class="m-0 px-3">Intravenous immunoglobulin prophylaxis</h5>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <button class="btn btn-secondary">D</button>
+                                        <h5 class="m-0 px-3">Aspirin</h5>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="mt-4">
+                                <div class="d-flex align-items-center">
+                                    <h5>Question 3 of 5</h5>
+                                    <div>
+                                        <audio controls>
+                                            <source src="https://serum-myeloma.s3.amazonaws.com/Audio/13.mp3" type="audio/mp3">
+                                        </audio>
+                                    </div>
+                                </div>
+                                <hr>
+                                <ul class="question">
+                                    <li class="d-flex align-items-center mb-3">
+                                        <button class="btn btn-secondary">A</button>
+                                        <h5 class="m-0 px-3">VRd (bortezomib/lenalidomide/dexamethasone)</h5>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <button class="btn btn-secondary">B</button>
+                                        <h5 class="m-0 px-3">VCd (bortezomib/cyclophosamide/dexamethasone)  </h5>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <button class="btn btn-secondary">C</button>
+                                        <h5 class="m-0 px-3">KRd (carfilzomib/lenalidomide/dexamethasone)</h5>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <button class="btn btn-secondary">D</button>
+                                        <h5 class="m-0 px-3">DaraVRd (daratumumab/bortezomib/lenalidomide/dexamethasone)</h5>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="mt-4">
+                                <div class="d-flex align-items-center">
+                                    <h5>Question 4 of 5</h5>
+                                    <div>
+                                        <audio controls>
+                                            <source src="https://serum-myeloma.s3.amazonaws.com/Audio/21.mp3" type="audio/mp3">
+                                        </audio>
+                                    </div>
+                                </div>
+                                <hr>
+                                <ul class="question">
+                                    <li class="d-flex align-items-center mb-3">
+                                        <button class="btn btn-secondary">A</button>
+                                        <h5 class="m-0 px-3">DaraVd (daratumumab/bortezomib/dexamethasone) </h5>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <button class="btn btn-secondary">B</button>
+                                        <h5 class="m-0 px-3">DaraKd (daratumumab/carfilzomib/dexamethasone)</h5>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <button class="btn btn-secondary">C</button>
+                                        <h5 class="m-0 px-3">IsaPd (isatuximab/pomalidomide/dexamethasone)</h5>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <button class="btn btn-secondary">D</button>
+                                        <h5 class="m-0 px-3">PVd (pomalidomide/bortezomib/dexamethasone)</h5>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="mt-4">
+                                <div class="d-flex align-items-center">
+                                    <h5>Question 5 of 5</h5>
+                                    <div>
+                                        <audio controls>
+                                            <source src="https://serum-myeloma.s3.amazonaws.com/Audio/24.mp3" type="audio/mp3">
+                                        </audio>
+                                    </div>
+                                </div>
+                                <hr>
+                                <ul class="question">
+                                    <li class="d-flex align-items-center mb-3">
+                                        <button class="btn btn-secondary">A</button>
+                                        <h5 class="m-0 px-3">IsaPd (isatuximab/pomalidomide/dexamethasone) </h5>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <button class="btn btn-secondary">B</button>
+                                        <h5 class="m-0 px-3">IPd (ixazomib/pomalidomide/dexamethasone)</h5>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <button class="btn btn-secondary">C</button>
+                                        <h5 class="m-0 px-3">EloPd (elotuzumab/pomalidomide/dexamethasone)</h5>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <button class="btn btn-secondary">D</button>
+                                        <h5 class="m-0 px-3">KPd (carfilzomib/pomalidomide/dexamethasone)</h5>
+                                    </li>
+                                </ul>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- /.container-fluid -->
-        </div>
-        <!-- End of Main Content -->
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Your Website 2021</span>
-                </div>
-            </div>
-        </footer>
-        <!-- End of Footer -->
-
-    </div>
-    <!-- End of Content Wrapper -->
-</div>
-<!-- End of Page Wrapper -->
-
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
-
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login/">Logout</a>
-            </div>
         </div>
     </div>
-</div>
-
-<!-- Bootstrap core JavaScript-->
-<script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-<script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
-<!-- Core plugin JavaScript-->
-<script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js')  }}"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
-
-<!-- Page level plugins -->
-<script src="{{ asset('vendor/chart.js/Chart.min.js') }}"></script>
-
-<!-- Page level custom scripts -->
-<script src="{{ asset('js/demo/chart-area-demo.js') }}"></script>
-<script src="{{ asset('js/demo/chart-pie-demo.js') }}"></script>
-
-</body>
-
-</html>
+    @include('stepbar')
+@endsection()
+@section('footer_script')
+@endsection()

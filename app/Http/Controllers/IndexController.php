@@ -2,41 +2,67 @@
 
 
 namespace App\Http\Controllers;
+
 use App\Models\Diagnosis;
 use App\Models\Test;
 use App\Models\TestData;
 use Illuminate\Http\Request;
 
-class IndexController extends Controller{
-    public function index(){
+class IndexController extends Controller
+{
+    public function index()
+    {
         return view('index');
     }
-    public function interview(){
+
+    public function interview()
+    {
         $next = 'introduction';
-        return view('interview', compact( 'next'));
+        return view('interview', compact('next'));
     }
-    public function introduction(){
+
+    public function introduction()
+    {
         $next = 'quz-tests';
-        return view('introduction', compact( 'next'));
+        return view('introduction', compact('next'));
     }
-    public function tests(){
+
+    public function tests()
+    {
         $next = 'diagnosis';
         $returndata = [];
         $testData = TestData::all();
         foreach ($testData as $data) {
             array_push($returndata, $data->test);
         }
-        return view('tests', compact( 'next', 'returndata'));
+        return view('tests', compact('next', 'returndata'));
     }
-    public function upload(){
+
+    public function quz(){
+        $next = "case-interview";
+        return view('quiz', compact('next'));
+    }
+
+    public function caseInterview(){
+        $next = "caseInterview";
+        return view('case', compact('next'));
+    }
+
+
+    public function upload()
+    {
         return view('upload');
     }
-    public function views(){
+
+    public function views()
+    {
         $tests = Test::all();
         $diagnosis = Diagnosis::all();
         return view('view', compact('tests', 'diagnosis'));
     }
-    public function uploadfile(Request $request){
+
+    public function uploadfile(Request $request)
+    {
         $file = $request->file('file');
         $filename = $file->getClientOriginalName();
         $extension = $file->getClientOriginalExtension();
@@ -45,29 +71,29 @@ class IndexController extends Controller{
         $mimeType = $file->getMimeType();
 
         $valid_extension = array("csv");
-        if(in_array(strtolower($extension),$valid_extension)){
+        if (in_array(strtolower($extension), $valid_extension)) {
             $location = 'uploads';
-            $file->move($location,$filename);
-            $filepath = public_path($location."/".$filename);
-            $file = fopen($filepath,"r");
+            $file->move($location, $filename);
+            $filepath = public_path($location . "/" . $filename);
+            $file = fopen($filepath, "r");
             $importData_arr = array();
             $i = 0;
 
             while (($filedata = fgetcsv($file, 1000, ",")) !== FALSE) {
-                $num = count($filedata );
+                $num = count($filedata);
                 // Skip first row (Remove below comment if you want to skip the first row)
                 /*if($i == 0){
                    $i++;
                    continue;
                 }*/
-                for ($c=0; $c < $num; $c++) {
+                for ($c = 0; $c < $num; $c++) {
                     $importData_arr[$i][] = $filedata [$c];
                 }
                 $i++;
             }
             fclose($file);
-            foreach($importData_arr as $index=>$importData){
-                if($index != 0) {
+            foreach ($importData_arr as $index => $importData) {
+                if ($index != 0) {
                     $insertData = array(
                         "name" => $importData[0],
                         "project_id" => 1,
@@ -81,7 +107,8 @@ class IndexController extends Controller{
         }
     }
 
-    public function search(Request $request){
+    public function search(Request $request)
+    {
         $key = $request->key;
         $tests = Test::query()
             ->where('name', 'LIKE', "%{$key}%")
@@ -90,11 +117,12 @@ class IndexController extends Controller{
         return response()->json($tests);
     }
 
-    public function saveTest(Request $request){
+    public function saveTest(Request $request)
+    {
         $id = $request->id;
         $existData = TestData::where('test_id', $id)->get();
         $returndata = [];
-        if(count($existData) == 0) {
+        if (count($existData) == 0) {
             $data = array(
                 'test_id' => $id
             );
@@ -107,5 +135,9 @@ class IndexController extends Controller{
         return response()->json($returndata);
     }
 
+    public function deleteTest($testId){
+        TestData::where('test_id', $testId)->delete();
+        return redirect()->route('tests');
+    }
 
 }

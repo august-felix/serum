@@ -4,11 +4,16 @@
 @section('content')
     <div class="row pt-5">
         <div class="col-md-12 main-section">
+            <div class="mb-3">
+                <audio controls autoplay>
+                    <source src="https://serum-myeloma.s3.amazonaws.com/Audio/01.mp3" type="audio/mp3">
+                </audio>
+            </div>
             <div class="card border-0">
                 <div class="card-body bg-gray-100">
                     <div class="row">
-                        <div class="col-md-8">
-                            <div class="title">Serum CME - Multiple myeloma v6</div>
+                        <div class="col-md-10">
+                            <div class="title">Evidence-Based Approach to the Diagnosis and Management of Multiple myeloma</div>
                             <div class="mt-3"><h4>You Are Eligible for</h4>A certificate of completion</div>
                             <div class="mt-3"><h4>Target Audience and Goal Statement</h4>
                                 <p>This activity is intended for

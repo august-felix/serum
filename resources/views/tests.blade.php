@@ -88,7 +88,6 @@
 
         #result div:hover {
             background: whitesmoke;
-
         }
 
         .card {

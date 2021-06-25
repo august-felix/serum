@@ -11153,7 +11153,10 @@ a:focus {
 
 .sidebar {
     width: 6.5rem;
-    min-height: 100vh;
+    height: 100vh;
+    position: sticky;
+    overflow-y: auto;
+    /*min-height: 100vh;*/
 }
 
 .sidebar .nav-item {
@@ -11341,7 +11344,8 @@ a:focus {
 
 @media (min-width: 768px) {
     .sidebar {
-        width: 14rem !important;
+        width: 50rem !important;
+        /*width: 0rem !important;*/
     }
 
     .sidebar .nav-item .collapse {

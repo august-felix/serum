@@ -25,7 +25,8 @@
 
 <!-- Page Wrapper -->
 <div id="wrapper">
-    @include('slider')
+{{--    @include('slider')--}}
+    @include('profile')
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 

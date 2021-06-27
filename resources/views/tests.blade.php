@@ -90,7 +90,7 @@
             background: whitesmoke;
         }
 
-        .card {
+        .card-tests {
             min-height: 60vh;
         }
     </style>
@@ -98,7 +98,7 @@
 @section('content')
     <div class="row pt-5">
         <div class="col-md-12 main-section">
-            <div class="card border-0">
+            <div class="card border-0 card-tests">
                 <div class="card-body bg-gray-100">
                     <div class="row">
                         <div class="col-md-12">

@@ -1,10 +1,10 @@
 <!-- Sidebar -->
 
 
-<ul class="navbar-nav bg-gray-100 sidebar sidebar-dark accordion align-items-stretch" id="accordionSidebar">
+<ul class="navbar-nav bg-gray-100 sidebar sidebar-dark accordion align-items-stretch" id="profileSidebar">
     <li>
         <a class="sidebar-brand text-primary d-flex align-items-center justify-content-center">
-            <div class="sidebar-brand-icon" id="sidebarToggle">
+            <div class="sidebar-brand-icon" id="profileToggle">
                 <i class="fa fa-bars"></i>
             </div>
         </a>
@@ -26,8 +26,9 @@
                             <img src="/img/undraw_profile.svg" width="100px">
                         </div>
                         <div class="col-md-9">
-                            <h4 class="title">Louise N.</h4>
-                            <p>I'm here for my second course of maintenance therapy.</p>
+                            <h4 class="title">Sarah</h4>
+                            <p>My primary care provider arranged this visit. I've also seen a chiropractor, but no one
+                                can seem to help me with my back pain and constant feeling of tiredness.</p>
                         </div>
                     </div>
                     <div class="row">
@@ -39,7 +40,7 @@
                                             <div class="form-group row">
                                                 <label class="col-md-6 font-weight-bold">Age:</label>
                                                 <div class="col-md-6">
-                                                    <p>78 years</p>
+                                                    <p>70 years</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -57,7 +58,7 @@
                                             <div class="form-group row">
                                                 <label class="col-md-6 font-weight-bold">Weight:</label>
                                                 <div class="col-md-6">
-                                                    <p>58 Kg</p>
+                                                    <p>130 lbs. (59.0 kg)</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -65,7 +66,7 @@
                                             <div class="form-group row">
                                                 <label class="col-md-6 font-weight-bold">Height:</label>
                                                 <div class="col-md-6">
-                                                    <p>163Cm</p>
+                                                    <p>5 ft (152.4 cm)</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -75,7 +76,7 @@
                                             <div class="form-group row">
                                                 <label class="col-md-6 font-weight-bold">BMI:</label>
                                                 <div class="col-md-6">
-                                                    <p>21.8</p>
+                                                    <p>25.4 kg/m2</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -83,7 +84,7 @@
                                             <div class="form-group row">
                                                 <label class="col-md-6 font-weight-bold">Allergies</label>
                                                 <div class="col-md-6">
-                                                    <p>No Known drug allergies (NKDA)</p>
+                                                    <p>No known allergies</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -96,15 +97,16 @@
                         <div class="col-md-12">
                             <h4><i class="fas fa-clipboard p-2"></i>Case Description</h4>
                             <p class="p-2">
-                                Sarah is a 70-year-old woman presenting with fatigue and lower back pain. These symptoms
-                                both began at the same time about 6 months ago and have both been worsening. She has
-                                tried chiropractic care,
+                                The patient is a 70-year-old woman who was referred to hematology/oncology by er primary
+                                care physician (PCP) due to persistent fatigue, lower back pain, low-grade fever,
+                                abdominal tenderness, and abnormal laboratory results on 2 February 2021 for serum
+                                calcium, phosphate, hemoglobin, creatinine, and total protein.
                             </p>
                         </div>
                     </div>
                     <div class="row mt-4 ">
                         <div class="col-md-12">
-                            <h4><i class="fas fa-clipboard p-2"></i>Case Description</h4>
+                            <h4><i class="fas fa-clipboard p-2"></i>Visits</h4>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
@@ -119,27 +121,18 @@
                                             <h6>Today</h6>
                                             <a href="#">view more</a>
                                         </td>
-                                        <td>15</td>
-                                        <td>58.0</td>
-                                        <td>21.8</td>
+                                        <td>17</td>
+                                        <td>130 lbs. (59.0 kg)</td>
+                                        <td>25.4 kg/m2</td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <h6>Feb 18, 2021</h6>
+                                            <h6>January 20, 2019</h6>
                                             <a href="#">view more</a>
                                         </td>
                                         <td>17</td>
-                                        <td>60.0</td>
-                                        <td>22.6</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <h6>Nov 20, 2020</h6>
-                                            <a href="#">view more</a>
-                                        </td>
-                                        <td>16</td>
-                                        <td>61.0</td>
-                                        <td>23.0</td>
+                                        <td>130 lbs. (59.0 kg)</td>
+                                        <td>25.4 kg/m2</td>
                                     </tr>
                                     </tbody>
                                 </table>

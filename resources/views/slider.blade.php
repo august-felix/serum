@@ -9,61 +9,6 @@
             <i class="fa fa-bars"></i>
         </div>
     </a>
-    <li>
-        <div class="m-3">
-            <h4>Patient Chart</h4>
-            <ul class="nav nav-tabs">
-                <li class="active m-1"><a data-toggle="tab" href="#home">DemoGraphics</a></li>
-                <li class="m-1"><a data-toggle="tab" href="#menu1">Visits</a></li>
-                <li class="m-1"><a data-toggle="tab" href="#menu2">Tests</a></li>
-                <li class="m-1"><a data-toggle="tab" href="#menu3">Diganoses</a></li>
-                <li class="m-1"><a data-toggle="tab" href="#menu3">Orders</a></li>
-            </ul>
-
-            <div class="tab-content">
-                <div id="home" class="tab-pane active">
-                    <p class="p-3">
-                        You discuss the options with Sarah. You avoid KPd in view of her cardiac
-                        issues, and as she has already progressed while on daratumumab, you
-                        recommend initiating treatment with EloPd, to which she agrees. She
-                        tolerates treatment with Grade 2 neutropenia that is managed with
-                        granulocyte colony-stimulating factor (G-CSF) therapy. You continue to
-                        monitor her every 3 months.
-                    </p>
-                </div>
-                <div id="menu1" class="tab-pane fade">
-                    <p class="p-3">
-                        You discuss the options with Sarah. You avoid KPd in view of her cardiac
-                        issues, and as she has already progressed while on daratumumab, you
-                        recommend initiating treatment with EloPd, to which she agrees. She
-                        tolerates treatment with Grade 2 neutropenia that is managed with
-                        granulocyte colony-stimulating factor (G-CSF) therapy. You continue to
-                        monitor her every 3 months.
-                    </p>
-                </div>
-                <div id="menu2" class="tab-pane fade">
-                    <p class="p-3">
-                        You discuss the options with Sarah. You avoid KPd in view of her cardiac
-                        issues, and as she has already progressed while on daratumumab, you
-                        recommend initiating treatment with EloPd, to which she agrees. She
-                        tolerates treatment with Grade 2 neutropenia that is managed with
-                        granulocyte colony-stimulating factor (G-CSF) therapy. You continue to
-                        monitor her every 3 months.
-                    </p>
-                </div>
-                <div id="menu3" class="tab-pane fade">
-                    <p class="p-3">
-                        You discuss the options with Sarah. You avoid KPd in view of her cardiac
-                        issues, and as she has already progressed while on daratumumab, you
-                        recommend initiating treatment with EloPd, to which she agrees. She
-                        tolerates treatment with Grade 2 neutropenia that is managed with
-                        granulocyte colony-stimulating factor (G-CSF) therapy. You continue to
-                        monitor her every 3 months.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </li>
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
 

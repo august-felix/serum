@@ -4,18 +4,23 @@
     // Toggle the side navigation
     $("#sidebarToggle, #sidebarToggleTop").on('click', function (e) {
         // $("body").toggleClass("sidebar-toggled");
-        $(".sidebar").toggleClass("toggled");
-        if ($(".sidebar").hasClass("toggled")) {
-            $('.sidebar .collapse').collapse('hide');
-            $('.sidebar').removeClass("bg-gray-100");
-            $('.sidebar').addClass("bg-primary");
-        } else {
-            $('.sidebar').removeClass("bg-primary");
-            $('.sidebar').addClass("bg-gray-100");
-        }
-        ;
-
+        // $(".sidebar").toggleClass("toggled");
+        // if ($(".sidebar").hasClass("toggled")) {
+        //     $('.sidebar .collapse').collapse('hide');
+        //     $('.sidebar').removeClass("bg-gray-100");
+        //     $('.sidebar').addClass("bg-primary");
+        // } else {
+        //     $('.sidebar').removeClass("bg-primary");
+        //     $('.sidebar').addClass("bg-gray-100");
+        // }
+        $('#profileSidebar').show();
+        $('#accordionSidebar').hide();
     });
+    $('#accordionSidebar').hide();
+    $('#profileToggle').on('click', function(e){
+        $('#profileSidebar').hide();
+        $('#accordionSidebar').show();
+    })
 
     // Close any open menu accordions when window is resized below 768px
     $(window).resize(function () {

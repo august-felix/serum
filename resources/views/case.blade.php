@@ -91,7 +91,7 @@
 
         }
 
-        .card {
+        .case-card {
             min-height: 60vh;
         }
 
@@ -109,21 +109,13 @@
             border-color: #6bc5d0;
         }
 
-        .nav-tabs li a {
-            color: #858796;
-            font-weight: bold;
-        }
-
-        .nav-tabs li.active a {
-            color: #6bc5d0;
-        }
 
     </style>
 @endsection()
 @section('content')
     <div class="row pt-5">
         <div class="col-md-12 main-section">
-            <div class="card border-0">
+            <div class="card border-0 case-card">
                 <div class="card-body bg-gray-100">
                     <div class="row">
                         <div class="col-md-12">

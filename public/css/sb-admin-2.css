@@ -12153,3 +12153,13 @@ body.sidebar-toggled footer.sticky-footer {
     max-height: 60vh;
     overflow: auto;
 }
+
+
+.nav-tabs li a {
+    color: #858796;
+    font-weight: bold;
+}
+
+.nav-tabs li.active a {
+    color: #6bc5d0;
+}

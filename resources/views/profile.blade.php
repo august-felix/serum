@@ -13,14 +13,14 @@
         <div class="p-3">
             <h3 class="mb-4 title">Patient Chart</h3>
             <ul class="nav nav-tabs justify-content-between">
-                <li class="active m-2"><a data-toggle="tab" href="#home">Demographics</a></li>
-                <li class="m-2"><a data-toggle="tab" href="#menu1">Visits</a></li>
-                <li class="m-2"><a data-toggle="tab" href="#menu2">Tests</a></li>
-                <li class="m-2"><a data-toggle="tab" href="#menu3">Diganoses</a></li>
-                <li class="m-2"><a data-toggle="tab" href="#menu3">Orders</a></li>
+                <li class="active m-2"><a data-toggle="tab" href="#demographics">Demographics</a></li>
+                <li class="m-2"><a data-toggle="tab" href="#menu_visits">Visits</a></li>
+                <li class="m-2"><a data-toggle="tab" href="#menu_tests">Tests</a></li>
+                <li class="m-2"><a data-toggle="tab" href="#menu_diagnosis">Diagnosis</a></li>
+                <li class="m-2"><a data-toggle="tab" href="#menu_orders">Orders</a></li>
             </ul>
             <div class="tab-content">
-                <div id="home" class="tab-pane active">
+                <div id="demographics" class="tab-pane active">
                     <div class="row mt-4 p-2">
                         <div class="col-md-3">
                             <img src="/img/undraw_profile.svg" width="100px">
@@ -140,7 +140,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="menu1" class="tab-pane fade">
+                <div id="menu_visits" class="tab-pane fade">
                     <p class="p-2">
                         You discuss the options with Sarah. You avoid KPd in view of her cardiac
                         issues, and as she has already progressed while on daratumumab, you
@@ -150,7 +150,7 @@
                         monitor her every 3 months.
                     </p>
                 </div>
-                <div id="menu2" class="tab-pane fade">
+                <div id="menu_diagnosis" class="tab-pane fade">
                     <p class="p-2">
                         You discuss the options with Sarah. You avoid KPd in view of her cardiac
                         issues, and as she has already progressed while on daratumumab, you
@@ -160,7 +160,7 @@
                         monitor her every 3 months.
                     </p>
                 </div>
-                <div id="menu3" class="tab-pane fade">
+                <div id="menu_orders" class="tab-pane fade">
                     <p class="p-2">
                         You discuss the options with Sarah. You avoid KPd in view of her cardiac
                         issues, and as she has already progressed while on daratumumab, you

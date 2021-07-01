@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class TestData extends Model
 {
     use HasFactory;
-    protected $fillable = ['test_id'];
+    protected $fillable = ['test_id', 'visible'];
     protected $table = 'datat';
     public function test()
     {

@@ -19,13 +19,13 @@
             </li>
             <li class="@if(Route::current()->getName() === 'orders') active @endif">
 {{--                <img class="mb-4" src="{{ asset('img/interview.jpg') }}" width="100px"/>--}}
-                <a class="d-flex align-items-center justify-content-around" href="{{route('interview')}}">Orders</a>
+                <a class="d-flex align-items-center justify-content-around" href="{{route('orders')}}">Orders</a>
             </li>
             <li class="@if(Route::current()->getName() === 'quz') active @endif">
 {{--                <img class="mb-4" src="{{ asset('img/interview.jpg') }}" width="100px"/>--}}
                 <a class="d-flex align-items-center justify-content-around" href="{{route('quz')}}">Quiz</a>
             </li>
-            <li class="@if(Route::current()->getName() === 'review') active @endif">
+            <li class="@if(Route::current()->getName() === 'caseInterview') active @endif">
 {{--                <img class="mb-4" src="{{ asset('img/interview.jpg') }}" width="100px"/>--}}
                 <a class="d-flex align-items-center justify-content-around" href="{{route('caseInterview')}}">Case Review</a>
             </li>

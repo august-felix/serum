@@ -119,18 +119,22 @@
                                     <thead>
                                     <th>Name</th>
                                     <th>&nbsp;</th>
-                                    <th>&nbsp;</th>
-                                    <th>&nbsp;</th>
+                                    <th>&nbsp;Result1</th>
+                                    <th>&nbsp;Result2</th>
                                     <th>Action</th>
                                     </thead>
                                     <tbody id="tableBody">
                                         <?php foreach($returndata as $data) { ?>
                                             <tr>
-                                                <td>{{$data->name}}</td>
-                                                <td>{{$data->prompt}}</td>
-                                                <td>{{$data->result1}}</td>
-                                                <td>{{$data->result2}}</td>
-                                                <td class="text-center"><a href="/deleteTest/{{$data->id}}"><i class="fa fa-trash"></i></a></td>
+                                                <td>{{$data['data']->name}}</td>
+                                                <td>{{$data['data']->prompt}}</td>
+                                                <td>{{$data['data']->result1}}</td>
+                                                <?php if($data['visible'] != 0) { ?>
+                                                    <td>{{$data['data']->result2}}</td>
+                                                <?php } else { ?>
+                                                    <td>&nbsp;</td>
+                                                <?php } ?>
+                                                <td class="text-center"><a href="/deleteTest/{{$data['data']->id}}"><i class="fa fa-trash"></i></a></td>
                                             </tr>
                                         <?php } ?>
                                     </tbody>
@@ -173,13 +177,25 @@
                 success: function(data) {
                     $('#tableBody').empty();
                     for(var i = 0; i < data.length; i ++){
-                        var content = `<tr>
-                                            <td>${data[i]['name']}</td>
-                                            <td>${data[i]['prompt']}</td>
-                                            <td>${data[i]['result1']}</td>
-                                            <td>${data[i]['result2']}</td>
-                                            <td class="text-center"><a href="/deleteTest/${data[i]["id"]}"><i class="fa fa-trash"></i></a></td>
+                        var content = "";
+                        if(data[i]['visible'] != 0){
+                            content = `<tr>
+                                            <td>${data[i]['data']['name']}</td>
+                                            <td>${data[i]['data']['prompt']}</td>
+                                            <td>${data[i]['data']['result1']}</td>
+                                            <td>${data[i]['data']['result2']}</td>
+                                            <td class="text-center"><a href="/deleteTest/${data[i]['data']["id"]}"><i class="fa fa-trash"></i></a></td>
                                        </tr>`;
+                        } else {
+                            content = `<tr>
+                                            <td>${data[i]['data']['name']}</td>
+                                            <td>${data[i]['data']['prompt']}</td>
+                                            <td>${data[i]['data']['result1']}</td>
+                                            <td> </td>
+                                            <td class="text-center"><a href="/deleteTest/${data[i]['data']["id"]}"><i class="fa fa-trash"></i></a></td>
+                                       </tr>`;
+                        }
+
                         $('#tableBody').append(content);
                     }
                     console.log(data);

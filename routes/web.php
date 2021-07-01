@@ -19,6 +19,7 @@ Route::get('/interview',[IndexController::class, 'interview'])->name('interview'
 Route::get('/introduction',[IndexController::class, 'introduction'])->name('introduction');
 Route::get('/quz-tests',[IndexController::class, 'tests'])->name('tests');
 Route::get('/quz',[IndexController::class, 'quz'])->name('quz');
+Route::get('/orders',[IndexController::class, 'orders'])->name('orders');
 Route::get('/case-interview',[IndexController::class, 'caseInterview'])->name('caseInterview');
 
 Route::get('/upload', [IndexController::class, 'upload'])->name('upload');

@@ -33,7 +33,9 @@ class IndexController extends Controller
         $returndata = [];
         $testData = TestData::all();
         foreach ($testData as $data) {
-            array_push($returndata, $data->test);
+            $d['visible'] = $data['visible'];
+            $d['data']= $data->test;
+            array_push($returndata, $d);
         }
         return view('tests', compact('next', 'returndata'));
     }
@@ -41,6 +43,16 @@ class IndexController extends Controller
     public function quz(){
         $next = "case-interview";
         return view('quiz', compact('next'));
+    }
+
+    public function orders(){
+        $next = 'quz';
+        $returndata = [];
+        $testData = Test::all();
+        foreach ($testData as $data) {
+            array_push($returndata, $data);
+        }
+        return view('orders', compact('next', 'returndata'));
     }
 
     public function caseInterview(){
@@ -127,10 +139,14 @@ class IndexController extends Controller
                 'test_id' => $id
             );
             TestData::create($data);
+        } else {
+            TestData::where('test_id', $id)->update(array('visible' => 1));
         }
         $testData = TestData::all();
         foreach ($testData as $data) {
-            array_push($returndata, $data->test);
+            $d['visible'] = $data['visible'];
+            $d['data']= $data->test;
+            array_push($returndata, $d);
         }
         return response()->json($returndata);
     }

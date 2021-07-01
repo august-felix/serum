@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Diagnosis extends Model
 {
     use HasFactory;
+    protected $fillable = ['name', 'project_id', 'prompt'];
     protected $table = 'diagnosis';
     public function project()
     {

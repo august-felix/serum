@@ -147,7 +147,7 @@
         </div>
     </div>
     @include('stepbar')
-@endsection()
+@endsection()z
 @section('footer_script')
     <script type="text/javascript">
         $('#search').on('input', function () {

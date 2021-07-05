@@ -122,7 +122,7 @@
                                 <div class="d-flex align-items-center">
                                     <h5>Question 1 of 5</h5>
                                     <div>
-                                        <audio controls>
+                                        <audio controls autoplay>
                                             <source src="https://serum-myeloma.s3.amazonaws.com/Audio/03.mp3" type="audio/mp3">
                                         </audio>
                                     </div>

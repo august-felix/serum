@@ -104,7 +104,7 @@
                         <div class="col-md-12">
                             <div class="title">Tests</div>
                             <div class="mt-3">
-                                <audio controls>
+                                <audio controls autoplay>
                                     <source src="https://serum-myeloma.s3.amazonaws.com/Audio/08.mp3" type="audio/mp3">
                                 </audio>
                             </div>

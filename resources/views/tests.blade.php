@@ -73,7 +73,7 @@
 
         #result {
             position: absolute;
-            top: 165px;
+            top: 195px;
             right: 15px;
             left: 15px;
             border: 1px solid #d1d3e2;
@@ -103,10 +103,14 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="title">Tests</div>
-                            <div class="mt-3">
+                            <div class="mt-3 p-3 d-flex justify-content-between">
                                 <audio controls autoplay>
                                     <source src="https://serum-myeloma.s3.amazonaws.com/Audio/08.mp3" type="audio/mp3">
                                 </audio>
+                                <form class="d-flex m-0" method="post" action="/complete-answer">
+                                    {{ csrf_field() }}
+                                <button type="submit" class="btn btn-primary">Reveal complete answers</button>
+                                </form>
                             </div>
                             <div class="form-group">
                                 <input class="form-control" type="text" name="search" id="search"/>
@@ -117,10 +121,9 @@
                             <div class="table-responsive">
                                 <table class="table bordered table-hover">
                                     <thead>
-                                    <th>Name</th>
-                                    <th>&nbsp;</th>
-                                    <th>&nbsp;Result1</th>
-                                    <th>&nbsp;Result2</th>
+                                    <th>Tests</th>
+                                    <th>Guidance/Notes</th>
+                                    <th>Result</th>
                                     <th>Action</th>
                                     </thead>
                                     <tbody id="tableBody">
@@ -129,11 +132,6 @@
                                                 <td>{{$data['data']->name}}</td>
                                                 <td>{{$data['data']->prompt}}</td>
                                                 <td>{{$data['data']->result1}}</td>
-                                                <?php if($data['visible'] != 0) { ?>
-                                                    <td>{{$data['data']->result2}}</td>
-                                                <?php } else { ?>
-                                                    <td>&nbsp;</td>
-                                                <?php } ?>
                                                 <td class="text-center"><a href="/deleteTest/{{$data['data']->id}}"><i class="fa fa-trash"></i></a></td>
                                             </tr>
                                         <?php } ?>
@@ -147,7 +145,7 @@
         </div>
     </div>
     @include('stepbar')
-@endsection()z
+@endsection()
 @section('footer_script')
     <script type="text/javascript">
         $('#search').on('input', function () {
@@ -178,24 +176,12 @@
                     $('#tableBody').empty();
                     for(var i = 0; i < data.length; i ++){
                         var content = "";
-                        if(data[i]['visible'] != 0){
-                            content = `<tr>
-                                            <td>${data[i]['data']['name']}</td>
-                                            <td>${data[i]['data']['prompt']}</td>
-                                            <td>${data[i]['data']['result1']}</td>
-                                            <td>${data[i]['data']['result2']}</td>
-                                            <td class="text-center"><a href="/deleteTest/${data[i]['data']["id"]}"><i class="fa fa-trash"></i></a></td>
-                                       </tr>`;
-                        } else {
-                            content = `<tr>
-                                            <td>${data[i]['data']['name']}</td>
-                                            <td>${data[i]['data']['prompt']}</td>
-                                            <td>${data[i]['data']['result1']}</td>
-                                            <td> </td>
-                                            <td class="text-center"><a href="/deleteTest/${data[i]['data']["id"]}"><i class="fa fa-trash"></i></a></td>
-                                       </tr>`;
-                        }
-
+                        content = `<tr>
+                                        <td>${data[i]['data']['name']}</td>
+                                        <td>${data[i]['data']['prompt']}</td>
+                                        <td>${data[i]['data']['result1']}</td>
+                                        <td class="text-center"><a href="/deleteTest/${data[i]['data']["id"]}"><i class="fa fa-trash"></i></a></td>
+                                   </tr>`;
                         $('#tableBody').append(content);
                     }
                     console.log(data);

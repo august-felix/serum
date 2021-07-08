@@ -5,7 +5,7 @@
     <div class="row pt-5">
         <div class="col-md-12 main-section">
             <div class="mb-3">
-                <audio controls autoplay>
+                <audio controls>
                     <source src="https://serum-myeloma.s3.amazonaws.com/Audio/01.mp3" type="audio/mp3">
                 </audio>
             </div>
@@ -147,7 +147,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="mt-5">
-                <a href="{{ route('interview') }}" class="btn btn-primary py-3">Start Activity</a>
+                <a href="{{ route('prequiz') }}" class="btn btn-primary py-3">Start Activity</a>
             </div>
         </div>
     </div>

@@ -1,6 +1,16 @@
 (function ($) {
     "use strict"; // Start of use strict
 
+    $('.btn-view-more').click(function(){
+        $(this).hide()
+        var id = "#" + $(this).data('id');
+        $(id).toggle();
+    })
+
+    $('.nav-tabs li').click(function(){
+        $('.nav-tabs li*').removeClass('active');
+        $(this).addClass('active');
+    })
     // Toggle the side navigation
     $("#sidebarToggle, #sidebarToggleTop").on('click', function (e) {
         // $("body").toggleClass("sidebar-toggled");

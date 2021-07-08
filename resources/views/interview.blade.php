@@ -76,7 +76,7 @@
                         <div class="col-md-8">
                             <div class="title">Interview</div>
                             <div class="mt-3">
-                                <audio controls autoplay>
+                                <audio controls>
                                     <source src="https://serum-myeloma.s3.amazonaws.com/Audio/07.mp3" type="audio/mp3">
                                 </audio>
                             </div>

@@ -103,10 +103,27 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="title">Orders</div>
-                            <div class="mt-3">
+                            <div class="mt-3 d-flex justify-content-between">
                                 <audio controls autoplay>
                                     <source src="https://serum-myeloma.s3.amazonaws.com/Audio/08.mp3" type="audio/mp3">
                                 </audio>
+                                <form class="d-flex m-0" method="post" action="#">
+                                    {{ csrf_field() }}
+                                    <button type="submit" class="btn btn-primary">Reveal complete answers</button>
+                                </form>
+                            </div>
+                            <div class="mt-3">
+                                <h5>Sarah receives four cycles of VRd. She develops Grade 2 thrombocytopenia and anemia on
+                                treatment. You prescribe the appropriate supportive care options during her MM
+                                    treatment.</h5>
+
+                                <h5>SUPPORTIVE CARE OPTIONS (ADD OR REMOVE OPTIONS FROM THE LIST BELOW. PLEASE PRESCRIBE ALL
+                                APPROPRIATE OPTIONS AS RECOMMENDED BY THE 2021 NCCN GUIDELINES2 AND THE 2019 AMERICAN
+                                    SOCIETY OF CLINICAL ONCOLOGY [ASCO]/CANCER CARE ONTARIO [CCO] GUIDELINES17.)</h5>
+
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="search" id="search"/>
                             </div>
                             <div class="table-responsive">
                                 <table class="table bordered table-hover">
@@ -120,10 +137,10 @@
                                     <?php foreach($returndata as $data) { ?>
                                     <tr>
                                         <td>{{$data->name}}</td>
-{{--                                        <td>{{$data->prompt}}</td>--}}
-{{--                                        <td>{{$data->result1}}</td>--}}
-{{--                                        <td>{{$data->result2}}</td>--}}
-{{--                                        <td class="text-center"><a href="/deleteTest/{{$data->id}}"><i class="fa fa-trash"></i></a></td>--}}
+                                        {{--                                        <td>{{$data->prompt}}</td>--}}
+                                        {{--                                        <td>{{$data->result1}}</td>--}}
+                                        {{--                                        <td>{{$data->result2}}</td>--}}
+                                        {{--                                        <td class="text-center"><a href="/deleteTest/{{$data->id}}"><i class="fa fa-trash"></i></a></td>--}}
                                     </tr>
                                     <?php } ?>
                                     </tbody>

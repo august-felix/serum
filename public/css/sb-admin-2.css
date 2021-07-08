@@ -12163,3 +12163,9 @@ body.sidebar-toggled footer.sticky-footer {
 .nav-tabs li.active a {
     color: #6bc5d0;
 }
+
+.view-more{
+    display: none;
+    border: 0px !important;
+}
+

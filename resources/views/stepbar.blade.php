@@ -3,32 +3,36 @@
         <ul class="progressbar">
             <li class="@if(Route::current()->getName() === 'prequiz') active @endif">
                 {{--                <img class="mb-4" src="{{ asset('img/interview.jpg') }}" width="100px"/>--}}
-                <a class="d-flex align-items-center justify-content-around" href="{{route('prequiz')}}">1</a>
+                <a class="d-flex align-items-center justify-content-around" href="{{route('prequiz')}}">A</a>
             </li>
             <li class="@if(Route::current()->getName() === 'interview') active @endif">
 {{--                <img class="mb-4" src="{{ asset('img/interview.jpg') }}" width="100px"/>--}}
-                <a class="d-flex align-items-center justify-content-around" href="{{route('interview')}}">2</a>
+                <a class="d-flex align-items-center justify-content-around" href="{{route('interview')}}">B</a>
             </li>
 
             <li class="@if(Route::current()->getName() === 'tests') active @endif">
 {{--                <img class="mb-4" src="{{ asset('img/interview.jpg') }}" width="100px"/>--}}
-                <a class="d-flex align-items-center justify-content-around" href="{{route('tests')}}">3</a>
+                <a class="d-flex align-items-center justify-content-around" href="{{route('tests')}}">C</a>
             </li>
             <li class="@if(Route::current()->getName() === 'diagnosis') active @endif">
 {{--                <img class="mb-4" src="{{ asset('img/interview.jpg') }}" width="100px"/>--}}
-                <a class="d-flex align-items-center justify-content-around" href="{{route('interview')}}">4</a>
+                <a class="d-flex align-items-center justify-content-around" href="{{route('diagnosis')}}">D</a>
             </li>
             <li class="@if(Route::current()->getName() === 'orders') active @endif">
 {{--                <img class="mb-4" src="{{ asset('img/interview.jpg') }}" width="100px"/>--}}
-                <a class="d-flex align-items-center justify-content-around" href="{{route('orders')}}">5</a>
+                <a class="d-flex align-items-center justify-content-around" href="{{route('orders')}}">E</a>
+            </li>
+            <li class="@if(Route::current()->getName() === 'lasttest') active @endif">
+                {{--                <img class="mb-4" src="{{ asset('img/interview.jpg') }}" width="100px"/>--}}
+                <a class="d-flex align-items-center justify-content-around" href="{{route('lasttest')}}">F</a>
             </li>
             <li class="@if(Route::current()->getName() === 'quz') active @endif">
 {{--                <img class="mb-4" src="{{ asset('img/interview.jpg') }}" width="100px"/>--}}
-                <a class="d-flex align-items-center justify-content-around" href="{{route('quz')}}">6</a>
+                <a class="d-flex align-items-center justify-content-around" href="{{route('quz')}}">G</a>
             </li>
             <li class="@if(Route::current()->getName() === 'caseInterview') active @endif">
 {{--                <img class="mb-4" src="{{ asset('img/interview.jpg') }}" width="100px"/>--}}
-                <a class="d-flex align-items-center justify-content-around" href="{{route('caseInterview')}}">7</a>
+                <a class="d-flex align-items-center justify-content-around" href="{{route('caseInterview')}}">H</a>
             </li>
         </ul>
     </div>

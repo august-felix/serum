@@ -109,6 +109,7 @@
                                 </audio>
                                 <form class="d-flex m-0" method="post" action="/complete-answer">
                                     {{ csrf_field() }}
+                                    <input type="hidden" name="visible" value="1"/>
                                 <button type="submit" class="btn btn-primary">Reveal complete answers</button>
                                 </form>
                             </div>
@@ -171,7 +172,7 @@
             $.ajax({
                 type: 'POST',
                 url: '/saveTest',
-                data: {"_token": '{{csrf_token()}}', id: id},
+                data: {"_token": '{{csrf_token()}}', id: id, visible: 1},
                 success: function(data) {
                     $('#tableBody').empty();
                     for(var i = 0; i < data.length; i ++){

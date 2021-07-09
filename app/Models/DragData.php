@@ -10,8 +10,8 @@ class DragData extends Model
     use HasFactory;
     protected $fillable = ['drag_id'];
     protected $table = 'datad';
-    public function test()
+    public function drag()
     {
-        return $this->belongsTo(Test::class);
+        return $this->belongsTo(Drags::class);
     }
 }

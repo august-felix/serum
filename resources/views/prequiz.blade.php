@@ -91,10 +91,6 @@
 
         }
 
-        .card {
-            min-height: 60vh;
-        }
-
         .question {
             list-style-type: none;
         }

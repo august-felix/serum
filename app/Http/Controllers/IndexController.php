@@ -27,30 +27,66 @@ class IndexController extends Controller
         return view('interview', compact('next'));
     }
 
+    public function diagnosis(){
+        $next = 'orders';
+        return view('diagnosis', compact('next'));
+    }
+
 //    public function introduction()
 //    {
 //        $next = 'quz-tests';
 //        return view('introduction', compact('next'));
 //    }
-    public function complete_answer(){
+    public function complete_answer(Request $request){
         TestData::truncate();
         $testData = Test::all();
 
         foreach ($testData as $data) {
             if($data->result1 != ""){
                 $data = array(
-                    'test_id' => $data->id
+                    'test_id' => $data->id,
+                    'visible' => $request->visible,
                 );
                 TestData::create($data);
             }
         }
         return redirect()->route('tests');
     }
+    public function complete_answer_2(Request $request){
+        TestData::truncate();
+        $testData = Test::all();
+        foreach ($testData as $data) {
+            if($data->result1 != ""){
+                $data = array(
+                    'test_id' => $data->id,
+                    'visible' => $request->visible
+                );
+                TestData::create($data);
+            }
+        }
+        return redirect()->route('lasttest');
+    }
+    public function complete_drag(){
+        DragData::truncate();
+        $dragdata = Drags::all();
+
+        foreach ($dragdata as $data) {
+            if($data->prompt != ""){
+                if(strpos($data->prompt, 'Incorrect') !== 0) {
+                    $data = array(
+                        'drag_id' => $data->id
+                    );
+                    DragData::create($data);
+                }
+            }
+        }
+        return redirect()->route('orders');
+    }
     public function tests()
     {
         $next = 'diagnosis';
         $returndata = [];
-        $testData = TestData::all();
+        $testData = TestData::where('visible', '1')->get();
         foreach ($testData as $data) {
             $d['visible'] = $data['visible'];
             $d['data']= $data->test;
@@ -64,12 +100,28 @@ class IndexController extends Controller
         return view('quiz', compact('next'));
     }
 
-    public function orders(){
-        $next = 'quz';
+    public function lasttest(){
+        $next = "quz";
         $returndata = [];
-        $testData = Test::all();
+        $testData = TestData::where('visible', '2')->get();
+        if(count($testData) > 0){
+//            TestData::truncate();
+        }
         foreach ($testData as $data) {
-            array_push($returndata, $data);
+            $d['visible'] = $data['visible'];
+            $d['data']= $data->test;
+            array_push($returndata, $d);
+        }
+        return view('lasttest', compact('next', 'returndata'));
+    }
+
+    public function orders(){
+        $next = 'lasttest';
+        $returndata = [];
+        $dragdata = DragData::all();
+        foreach ($dragdata as $data) {
+            $d['data'] = $data->drag;
+            array_push($returndata, $d);
         }
         return view('orders', compact('next', 'returndata'));
     }
@@ -91,6 +143,49 @@ class IndexController extends Controller
         $diagnosis = Diagnosis::all();
         $drags = Drags::all();
         return view('view', compact('tests', 'diagnosis', 'drags'));
+    }
+
+    public function uploadDia(Request $request){
+        $file = $request->file('file');
+        $filename = $file->getClientOriginalName();
+        $extension = $file->getClientOriginalExtension();
+        $tempPath = $file->getRealPath();
+        $fileSize = $file->getSize();
+        $mimeType = $file->getMimeType();
+
+        $valid_extension = array("csv");
+        if (in_array(strtolower($extension), $valid_extension)) {
+            $location = 'uploads';
+            $file->move($location, $filename);
+            $filepath = public_path($location . "/" . $filename);
+            $file = fopen($filepath, "r");
+            $importData_arr = array();
+            $i = 0;
+
+            while (($filedata = fgetcsv($file, 1000, ",")) !== FALSE) {
+                $num = count($filedata);
+                // Skip first row (Remove below comment if you want to skip the first row)
+                /*if($i == 0){
+                   $i++;
+                   continue;
+                }*/
+                for ($c = 0; $c < $num; $c++) {
+                    $importData_arr[$i][] = $filedata [$c];
+                }
+                $i++;
+            }
+            fclose($file);
+            foreach ($importData_arr as $index => $importData) {
+                if ($index != 0) {
+                    $insertData = array(
+                        "name" => $importData[0],
+                        "project_id" => 1,
+                        "prompt" => $importData[1]);
+                    $test = Diagnosis::create($insertData);
+                }
+            }
+            return redirect()->route('views');
+        }
     }
 
     public function uploadDrag(Request $request){
@@ -192,24 +287,55 @@ class IndexController extends Controller
             ->get();
         return response()->json($tests);
     }
+    public function searchDrag(Request $request)
+    {
+        $key = $request->key;
+        $tests = Drags::query()
+            ->where('name', 'LIKE', "%{$key}%")
+            ->take(30)
+            ->get();
+        return response()->json($tests);
+    }
+
+
+
 
     public function saveTest(Request $request)
     {
         $id = $request->id;
+        $visible = $request->visible;
         $existData = TestData::where('test_id', $id)->get();
         $returndata = [];
-        if (count($existData) == 0) {
-            $data = array(
-                'test_id' => $id
-            );
-            TestData::create($data);
-        } else {
-            TestData::where('test_id', $id)->update(array('visible' => 1));
-        }
-        $testData = TestData::all();
+        $data = array(
+            'test_id' => $id,
+            'visible' => $visible
+        );
+        TestData::create($data);
+        $testData = TestData::where('visible', $visible)->get();
         foreach ($testData as $data) {
             $d['visible'] = $data['visible'];
             $d['data']= $data->test;
+            array_push($returndata, $d);
+        }
+        return response()->json($returndata);
+    }
+    public function saveDrag(Request $request)
+    {
+        $id = $request->id;
+        $existData = DragData::where('drag_id', $id)->get();
+        $returndata = [];
+        if (count($existData) == 0) {
+            $data = array(
+                'drag_id' => $id
+            );
+            DragData::create($data);
+        } else {
+            DragData::where('drag_id', $id)->update(array('visible' => 1));
+        }
+        $testData = DragData::all();
+        foreach ($testData as $data) {
+            $d['visible'] = $data['visible'];
+            $d['data']= $data->drag;
             array_push($returndata, $d);
         }
         return response()->json($returndata);
@@ -218,6 +344,15 @@ class IndexController extends Controller
     public function deleteTest($testId){
         TestData::where('test_id', $testId)->delete();
         return redirect()->route('tests');
+    }
+    public function deleteTest2($testId){
+        TestData::where('test_id', $testId)->delete();
+        return redirect()->route('lasttest');
+    }
+
+    public function deleteDrag($dragId){
+        DragData::where('drag_id', $dragId)->delete();
+        return redirect()->route('orders');
     }
 
 }

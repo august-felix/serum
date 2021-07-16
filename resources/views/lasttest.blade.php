@@ -7,7 +7,7 @@
 
         .progressbar li {
             list-style-type: none;
-            width: 12%;
+            width: 8%;
             float: left;
             font-size: 18px;
             position: relative;
@@ -102,10 +102,9 @@
                 <div class="card-body bg-gray-100">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="title">Second Tests</div>
                             <div class="mt-3 p-3 d-flex justify-content-between">
-                                <audio controls autoplay>
-                                    <source src="https://serum-myeloma.s3.amazonaws.com/Audio/08.mp3" type="audio/mp3">
+                                <audio controls <?php if(Request::get('flag') == false) echo "autoplay" ?>>
+                                    <source src="https://serum-myeloma.s3.amazonaws.com/Audio/20.mp3" type="audio/mp3">
                                 </audio>
                                 <form class="d-flex m-0" method="post" action="/complete-answer-2">
                                     {{ csrf_field() }}
@@ -113,6 +112,12 @@
                                     <button type="submit" class="btn btn-primary">Reveal complete answers</button>
                                 </form>
                             </div>
+                            <div class="mt-3">
+                                <p>
+                                    EXAMINATIONS AT RELAPSE (PLEASE ORDER ALL APPROPRIATE TESTS TO EVALUATE RELAPSE.<sup>2</sup>)
+                                </p>
+                            </div>
+
                             <div class="form-group">
                                 <input class="form-control" type="text" name="search" id="search"/>
                             </div>
@@ -131,8 +136,8 @@
                                     <?php foreach($returndata as $data) { ?>
                                     <tr>
                                         <td>{{$data['data']->name}}</td>
-                                        <td>{{$data['data']->prompt}}</td>
-                                        <td>{{$data['data']->result2}}</td>
+                                        <td>{!! $data['data']->prompt  !!}</td>
+                                        <td>{!! $data['data']->result2  !!}</td>
                                         <td class="text-center"><a href="/deleteTest2/{{$data['data']->id}}"><i class="fa fa-trash"></i></a></td>
                                     </tr>
                                     <?php } ?>
@@ -181,7 +186,7 @@
                                         <td>${data[i]['data']['name']}</td>
                                         <td>${data[i]['data']['prompt']}</td>
                                         <td>${data[i]['data']['result2']}</td>
-                                        <td class="text-center"><a href="/deleteTest/${data[i]['data']["id"]}"><i class="fa fa-trash"></i></a></td>
+                                        <td class="text-center"><a href="/deleteTest2/${data[i]['data']["id"]}"><i class="fa fa-trash"></i></a></td>
                                    </tr>`;
                         $('#tableBody').append(content);
                     }

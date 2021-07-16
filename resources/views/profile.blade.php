@@ -30,7 +30,7 @@
                         <img src="/img/undraw_profile.svg" width="100px">
                     </div>
                     <div class="col-md-9">
-                        <h4 class="title">Sarah</h4>
+                        <p class="title">Sarah</p>
                         <p>My primary care provider arranged this visit. I've also seen a chiropractor, but no one
                             can seem to help me with my back pain and constant feeling of tiredness.</p>
                     </div>
@@ -80,7 +80,7 @@
                                         <div class="form-group row">
                                             <label class="col-md-6 font-weight-bold">BMI:</label>
                                             <div class="col-md-6">
-                                                <p>25.4 kg/m2</p>
+                                                <p>25.4 kg/m<sup>2</sup></p>
                                             </div>
                                         </div>
                                     </div>
@@ -99,7 +99,7 @@
                 </div>
                 <div class="row mt-4 ">
                     <div class="col-md-12">
-                        <h4><i class="fas fa-clipboard p-2"></i>Case Description</h4>
+                        <p><i class="fas fa-clipboard p-2"></i>Case Description</p>
                         <p class="p-2">
                             The patient is a 70-year-old woman who was referred to hematology/oncology by er primary
                             care physician (PCP) due to persistent fatigue, lower back pain, low-grade fever,
@@ -111,7 +111,7 @@
 
                 <div class="row mt-4" id="menu_visits">
                     <div class="col-md-12">
-                        <h4><i class="fas fa-clipboard p-2"></i>Visits</h4>
+                        <p><i class="fas fa-clipboard p-2"></i>Visits</p>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
@@ -122,22 +122,22 @@
                                 <tbody>
                                 <tr>
                                     <td>
-                                        <h6>Today</h6>
+                                        <p>Today</p>
                                         <a href="javascript:void(0)" class="btn-view-more" data-id="visit_1">view more</a>
                                     </td>
                                     <td>130 lbs. (59.0 kg)</td>
-                                    <td>25.4 kg/m2</td>
+                                    <td>25.4 kg/m<sup>2</sup></td>
                                 </tr>
                                 <tr>
                                     <td class="view-more" id="visit_1" colspan="3">NOTES: Referred from PCP for possible hematological malignancy</td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <h6>January 20, 2019</h6>
+                                        <p>January 20, 2019</p>
                                         <a href="javascript:void(0)" class="btn-view-more" data-id="visit_2">view more</a>
                                     </td>
                                     <td>130 lbs. (59.0 kg)</td>
-                                    <td>25.4 kg/m2</td>
+                                    <td>25.4 kg/m<sup>2</sup></td>
                                 </tr>
                                 <tr>
                                     <td class="view-more" id="visit_2" colspan="3">NOTES: Regular exercise (eg, walking) recommended</td>
@@ -150,7 +150,7 @@
 
                 <div class="row mt-4" id="menu_tests">
                     <div class="col-md-12">
-                        <h4><i class="fas fa-clipboard p-2"></i>Tests</h4>
+                        <p><i class="fas fa-clipboard p-2"></i>Tests</p>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
@@ -160,7 +160,7 @@
                                 <tbody>
                                 <tr>
                                     <td>
-                                        <h6>February 2, 2021</h6>
+                                        <p>February 2, 2021</p>
                                         <a href="javascript:void(0)" class="btn-view-more" data-id="test_1">view more</a>
                                     </td>
                                     <td>Calcium (serum)</td>
@@ -170,7 +170,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <h6>February 2, 2021</h6>
+                                        <p>February 2, 2021</p>
                                         <a href="javascript:void(0)" class="btn-view-more" data-id="test_2">view more</a>
                                     </td>
                                     <td>Phosphate (serum)</td>
@@ -181,7 +181,7 @@
 
                                 <tr>
                                     <td>
-                                        <h6>February 2, 2021</h6>
+                                        <p>February 2, 2021</p>
                                         <a href="javascript:void(0)" class="btn-view-more" data-id="test_3">view more</a>
                                     </td>
                                     <td>Creatinine (serum)</td>
@@ -193,7 +193,7 @@
 
                                 <tr>
                                     <td>
-                                        <h6>February 2, 2021</h6>
+                                        <p>February 2, 2021</p>
                                         <a href="javascript:void(0)" class="btn-view-more" data-id="test_4">view more</a>
                                     </td>
                                     <td>Hemoglobin</td>
@@ -204,7 +204,7 @@
 
                                 <tr>
                                     <td>
-                                        <h6>February 2, 2021</h6>
+                                        <p>February 2, 2021</p>
                                         <a href="javascript:void(0)" class="btn-view-more" data-id="test_5">view more</a>
                                     </td>
                                     <td>Total protein (serum)</td>
@@ -215,7 +215,7 @@
 
                                 <tr>
                                     <td>
-                                        <h6>January 21, 2019</h6>
+                                        <p>January 21, 2019</p>
                                         <a href="javascript:void(0)" class="btn-view-more" data-id="test_6">view more</a>
                                     </td>
                                     <td>Thyroid-stimulating hormone level (serum)</td>
@@ -226,7 +226,7 @@
 
                                 <tr>
                                     <td>
-                                        <h6>January 21, 2019</h6>
+                                        <p>January 21, 2019</p>
                                         <a href="javascript:void(0)" class="btn-view-more" data-id="test_7">view more</a>
                                     </td>
                                     <td>Thyroxine (T4), free (serum)</td>
@@ -241,7 +241,7 @@
                 </div>
                 <div class="row mt-4 " id="menu_diagnosis">
                     <div class="col-md-12">
-                        <h4><i class="fas fa-clipboard p-2"></i>Diagnosis</h4>
+                        <p><i class="fas fa-clipboard p-2"></i>Diagnosis</p>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
@@ -252,14 +252,14 @@
                                 <tbody>
                                 <tr>
                                     <td>
-                                        <h6>Hashimoto’s thyroiditis</h6>
+                                        <p>Hashimoto’s thyroiditis</p>
                                     </td>
                                     <td>August 5, 2004</td>
                                     <td>Ongoing</td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <h6>Hypertension</h6>
+                                        <p>Hypertension</p>
                                     </td>
                                     <td>June 8, 2001</td>
                                     <td>Ongoing</td>
@@ -271,7 +271,7 @@
                 </div>
                 <div class="row mt-4 " id="menu_orders">
                     <div class="col-md-12">
-                        <h4><i class="fas fa-clipboard p-2"></i>Orders</h4>
+                        <p><i class="fas fa-clipboard p-2"></i>Orders</p>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
@@ -281,13 +281,13 @@
                                 <tbody>
                                 <tr>
                                     <td>
-                                        <h6>Levothyroxine (oral) </h6>
+                                        <p>Levothyroxine (oral) </p>
                                     </td>
                                     <td>75 mcg daily in the morning</td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <h6>Bendroflumethiazide (oral)</h6>
+                                        <p>Bendroflumethiazide (oral)</p>
                                     </td>
                                     <td>2.5 mg daily in the morning</td>
                                 </tr>

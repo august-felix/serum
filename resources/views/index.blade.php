@@ -1,21 +1,25 @@
 @extends('app')
 @section('header_style')
+    <style>
+
+    </style>
+
 @endsection()
 @section('content')
     <div class="row pt-5">
         <div class="col-md-12 main-section">
             <div class="mb-3">
-                <audio controls>
+                <audio controls autoplay>
                     <source src="https://serum-myeloma.s3.amazonaws.com/Audio/01.mp3" type="audio/mp3">
                 </audio>
             </div>
             <div class="card border-0">
                 <div class="card-body bg-gray-100">
                     <div class="row">
-                        <div class="col-md-10">
-                            <div class="title">Evidence-Based Approach to the Diagnosis and Management of Multiple myeloma</div>
-                            <div class="mt-3"><h4>You Are Eligible for</h4>A certificate of completion</div>
-                            <div class="mt-3"><h4>Target Audience and Goal Statement</h4>
+                        <div class="col-md-12">
+                            <p>Evidence-Based Approach to the Diagnosis and Management of Multiple myeloma</p>
+                            <div class="mt-3"><p class="bold">You Are Eligible for</p>A certificate of completion</div>
+                            <div class="mt-3"><p class="bold">Target Audience and Goal Statement</p>
                                 <p>This activity is intended for
                                     hematology/oncology specialists, nurses, pharmacists, and other members of the
                                     healthcare team for patients with multiple myeloma.</p>
@@ -46,7 +50,7 @@
                                 </ol>
                             </div>
                             <div>
-                                <h4>Disclosures</h4>
+                                <p class="bold">Disclosures</p>
                                 <p>Libertas Vita, LLC requires everyone who is in a position to control the content of
                                     an education activity to disclose all relevant financial relationships with any
                                     commercial interest. The ACCME defines "relevant financial relationships" as
@@ -58,8 +62,8 @@
                                     mention and where appropriate in the content.</p>
                             </div>
                             <div>
-                                <h4>Moderator</h4>
-                                <h5>Saad Z. Usmani, MD MBA FACP</h5>
+                                <p class="bold">Moderator</p>
+                                <p>Saad Z. Usmani, MD MBA FACP</p>
                                 <p>
                                     Chief, Plasma Cell Disorders Division; Director, Clinical Research for Hematologic
                                     Malignancies
@@ -75,8 +79,8 @@
                                 </p>
                             </div>
                             <div>
-                                <h4>Reviewers</h4>
-                                <h5>María-Victoria Mateos, MD PhD</h5>
+                                <p class="bold">Reviewers</p>
+                                <p>María-Victoria Mateos, MD PhD</p>
                                 <p>Director of the Myeloma Program
                                     Department of Hematology
                                     Salamanca's University, Spain
@@ -86,7 +90,7 @@
                                     Served as a paid speaker for: Janssen; Celgene; Amgen; Takeda; Oncopeptides; Sanofi;
                                     Adaptive; Karyopharm.
                                 </p>
-                                <h5>Andrew Spencer, MBBS FRACP FRCPA DM</h5>
+                                <p>Andrew Spencer, MBBS FRACP FRCPA DM</p>
                                 <p>Head of the Malignant Haematology & Stem Cell Transplantation Service
                                     Professor of Haematology at Monash University, Head of the Myeloma Research Group
                                     and Co-Director of the ACRF Blood Cancer Therapeutics Centre at the Australian
@@ -105,13 +109,13 @@
                                 </p>
                             </div>
                             <div>
-                                <h4>Editor</h4>
+                                <p class="bold">Editor</p>
                                 <p>Sophia Whitman, MD
                                     Medical Education Director, Libertas Vita, LLC
                                 </p>
                             </div>
                             <div>
-                                <h4>CME Reviewer</h4>
+                                <p class="bold">CME Reviewer</p>
                                 <p>Rita Aresta, MD
                                     Associate Director, Accreditation and Compliance, Libertas Vita, LLC
                                 </p>
@@ -124,7 +128,7 @@
                                 </p>
                             </div>
                             <div>
-                                <h4>Instructions for participation</h4>
+                                <p class="bold">Instructions for participation</p>
                                 <p>There are no fees for participating in educational activities offered by Libertas
                                     Vita.</p>
                                 <p>Follow these steps:</p>

@@ -7,7 +7,7 @@
 
         .progressbar li {
             list-style-type: none;
-            width: 12%;
+            width: 8%;
             float: left;
             font-size: 18px;
             position: relative;
@@ -102,10 +102,10 @@
                 <div class="card-body bg-gray-100">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="title">Orders</div>
+{{--                            <div class="title">Orders</div>--}}
                             <div class="mt-3 d-flex justify-content-between">
-                                <audio controls autoplay>
-                                    <source src="https://serum-myeloma.s3.amazonaws.com/Audio/08.mp3" type="audio/mp3">
+                                <audio controls <?php if(Request::get('flag') == false) echo "autoplay" ?>>
+                                    <source src="https://serum-myeloma.s3.amazonaws.com/Audio/15.mp3" type="audio/mp3">
                                 </audio>
                                 <form class="d-flex m-0" method="post" action="/complete-drag">
                                     {{ csrf_field() }}
@@ -117,8 +117,8 @@
                                 treatment. You prescribe the appropriate supportive care options during her MM
                                     treatment.</p>
                                 <p>SUPPORTIVE CARE OPTIONS (ADD OR REMOVE OPTIONS FROM THE LIST BELOW. PLEASE PRESCRIBE ALL
-                                APPROPRIATE OPTIONS AS RECOMMENDED BY THE 2021 NCCN GUIDELINES2 AND THE 2019 AMERICAN
-                                    SOCIETY OF CLINICAL ONCOLOGY [ASCO]/CANCER CARE ONTARIO [CCO] GUIDELINES17.)</p>
+                                APPROPRIATE OPTIONS AS RECOMMENDED BY THE 2021 NCCN GUIDELINES<sup>2</sup> AND THE 2019 AMERICAN
+                                    SOCIETY OF CLINICAL ONCOLOGY [ASCO]/CANCER CARE ONTARIO [CCO] GUIDELINES<sup>17</sup>.)</p>
                             </div>
                             <div class="form-group">
                                 <input class="form-control" type="text" name="search" id="search"/>
@@ -137,7 +137,7 @@
                                     <?php foreach($returndata as $data) { ?>
                                     <tr>
                                         <td>{{$data['data']->name}}</td>
-                                        <td>{{$data['data']->prompt}}</td>
+                                        <td>{!!  $data['data']->prompt!!}</td>
                                         <td class="text-center"><a href="/deletedragdata/{{$data['data']->id}}"><i class="fa fa-trash"></i></a></td>
                                     </tr>
                                     <?php } ?>

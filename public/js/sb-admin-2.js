@@ -1,6 +1,13 @@
 (function ($) {
     "use strict"; // Start of use strict
-
+    var profile = localStorage.getItem('profile');
+    if(profile){
+        $('#profileSidebar').show();
+        $('#accordionSidebar').hide();
+    } else {
+        $('#profileSidebar').hide();
+        $('#accordionSidebar').show();
+    }
     $('.btn-view-more').click(function(){
         $(this).hide()
         var id = "#" + $(this).data('id');
@@ -23,13 +30,21 @@
         //     $('.sidebar').removeClass("bg-primary");
         //     $('.sidebar').addClass("bg-gray-100");
         // }
+        localStorage.setItem('profile', true);
         $('#profileSidebar').show();
         $('#accordionSidebar').hide();
     });
-    $('#accordionSidebar').hide();
+    // $('#accordionSidebar').hide();
     $('#profileToggle').on('click', function(e){
+        localStorage.removeItem('profile');
         $('#profileSidebar').hide();
         $('#accordionSidebar').show();
+    })
+
+    $('.question li').click(function(){
+        $('.question li*').removeClass("active");
+        $(this).addClass("active");
+        $('.question li button')
     })
 
     // Close any open menu accordions when window is resized below 768px

@@ -6,7 +6,7 @@
         }
         .progressbar li {
             list-style-type: none;
-            width: 12%;
+            width: 8%;
             float: left;
             font-size: 18px;
             position: relative;
@@ -73,15 +73,15 @@
             <div class="card border-0">
                 <div class="card-body bg-gray-100">
                     <div class="row">
-                        <div class="col-md-8">
-                            <div class="title">Interview</div>
+                        <div class="col-md-12">
+                            <p>Interview</p>
                             <div class="mt-3">
-                                <audio controls>
+                                <audio controls autoplay>
                                     <source src="https://serum-myeloma.s3.amazonaws.com/Audio/07.mp3" type="audio/mp3">
                                 </audio>
                             </div>
                             <div class="mt-3">
-                                <h4>History of presenting illness</h4>
+                                <p class="bold">History of presenting illness</p>
                                 <p>Sarah is a 70-year-old woman presenting with fatigue and lower back pain. These
                                     symptoms both began at the same time about 6 months ago and have both been
                                     worsening. She has tried chiropractic care, which has not alleviated her symptoms.
@@ -90,17 +90,17 @@
                                     health and led an active lifestyle, including volunteering at the school where she
                                     used to teach before retirement and regularly babysitting her grandchildren.
                                     Currently her symptoms make these activities impossible.</p>
-                                <h4>
+                                <p class="bold">
                                     Medical history
-                                </h4>
+                                </p>
                                 <p>
                                     Sarah’s medical history is notable for hypertension for the past 18 years, which is
                                     currently controlled with bendroflumethiazide, and mild Hashimoto’s thyroiditis for
                                     the past 15 years, which is controlled with levothyroxine.
                                 </p>
-                                <h4>
+                                <p class="bold">
                                     Family history and social history
-                                </h4>
+                                </p>
                                 <p>Sarah’s parents are deceased and died in their 80s. Sarah has one brother (aged 73)
                                     who received chemotherapy for leukemia about 10 years ago. She cannot remember the
                                     type of leukemia. Sarah has a second brother (aged 75) with a 20-year history of
@@ -109,9 +109,9 @@
                                     brother as much as possible over the past year. Sarah has two daughters, aged 41 and
                                     43; both daughters have two children each. Sarah used to babysit her grandchildren
                                     regularly but is no longer able to do so due to her fatigue and back pain.</p>
-                                <h4>
+                                <p class="bold">
                                     Physical examination notes
-                                </h4>
+                                </p>
                                 <p>The physical examination is notable for a low-grade fever (99.5 °F/37.5 °C) and
                                     abdominal tenderness. </p>
                             </div>

@@ -95,7 +95,7 @@
             list-style-type: none;
         }
 
-        .question li:hover h5 {
+        .question li:hover p {
             color: #6bc5d0;
             cursor: pointer;
         }
@@ -103,6 +103,15 @@
         .question li:hover button {
             background: #6bc5d0;
             border-color: #6bc5d0;
+        }
+
+        .answer-section {
+            display: none;
+            color: #0000bd;
+            font-weight: bold;
+        }
+        #answer_text {
+            display: none;
         }
 
     </style>
@@ -115,53 +124,74 @@
                 <div class="card-body bg-gray-100">
                     <div class="row">
                         <div class="col-md-12">
-                            <p>EDUCATIONAL IMPACT CHALLENGE</p>
-                            <div class="mb-3">
-                                <audio controls autoplay>
-                                    <source src="https://serum-myeloma.s3.amazonaws.com/Audio/02v2.mp3" type="audio/mp3">
-                                </audio>
+                            <div class="mt-4">
+                                <div>
+                                    <audio controls autoplay>
+                                        <source src="https://serum-myeloma.s3.amazonaws.com/Audio/21v2.mp3"
+                                                type="audio/mp3">
+                                    </audio>
+                                </div>
+                                <p>
+                                    You recommend treatment with DaraVd, and Sarah agrees. In between her second and
+                                    third cycles of treatment, she is admitted to the hospital with a non-ST segment
+                                    elevation myocardial infarction. Following treatment, she is discharged on long-term
+                                    aspirin and simvastatin. She completes eight cycles of DaraVd followed by ongoing
+                                    daratumumab. A progression-free response of 7 months is achieved before a follow-up
+                                    assessment shows disease progression. Treatment options are reviewed, in
+                                    consultation with the patient, taking into account her high-risk cytogenetic
+                                    abnormalities, previous treatments and related AEs, as well as her co-morbidities.
+                                </p>
+
                             </div>
                             <div class="mt-4">
                                 <div class="d-flex align-items-center">
-                                    <p>Question 1. According to the 2021 National Comprehensive Cancer Network
-                                        guidelines for MM,
-                                        which of the following are preferred imaging modalities for the detection of
-                                        bone lesions during the diagnostic workup of suspected MM?</p>
+                                    <p>Question 2. Which of the following treatment options for second-line therapy
+                                        would you choose based on a category 1 recommendation (highest level of
+                                        evidence) by the 2021 NCCN guidelines for MM? Select all answers that are
+                                        correct.</p>
                                 </div>
                                 <hr>
                                 <ul class="question">
                                     <li class="d-flex align-items-center mb-3">
                                         <button class="btn btn-secondary">A</button>
-                                        <p class="m-0 px-3">Skeletal survey with conventional X-ray</p>
+                                        <p class="m-0 px-3">DaraVd (daratumumab/bortezomib/dexamethasone) </p>
                                     </li>
                                     <li class="d-flex align-items-center mb-3">
                                         <button class="btn btn-secondary">B</button>
-                                        <p class="m-0 px-3">Whole body low dose CT</p>
+                                        <p class="m-0 px-3">DaraKd (daratumumab/carfilzomib/dexamethasone)</p>
                                     </li>
                                     <li class="d-flex align-items-center mb-3">
                                         <button class="btn btn-secondary">C</button>
-                                        <p class="m-0 px-3">Fluorodeoxyglucose (FDG)-positron emission tomography
-                                            (PET)/CT</p>
+                                        <p class="m-0 px-3">IsaPd (isatuximab/pomalidomide/dexamethasone)</p>
                                     </li>
                                     <li class="d-flex align-items-center mb-3">
                                         <button class="btn btn-secondary">D</button>
-                                        <p class="m-0 px-3">B and C only </p>
+                                        <p class="m-0 px-3">PVd (pomalidomide/bortezomib/dexamethasone)</p>
                                     </li>
-                                    <li class="d-flex align-items-center mb-3">
-                                        <button class="btn btn-secondary">E</button>
-                                        <p class="m-0 px-3">A, B, and C</p>
+                                    <li class="d-flex justify-content-end align-items-right mb-3">
+{{--                                        <a class="btn btn-info mr-3" id="answer_text" href="{{route('answer-2')}}">Answer Text</a>--}}
+{{--                                        <a class="btn btn-success answer" href="{{$next}}">Submit Answer</a>--}}
                                     </li>
                                 </ul>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-{{--    @include('stepbar')--}}
-    @include('next')
+    @include('stepbar')
 @endsection()
 @section('footer_script')
+    <script>
+        $(function () {
+            // $('.answer').click(function () {
+            //     var id = "#" + $(this).data('id');
+            //     $(id).slideToggle();
+            // });
+            // $('.question li').click(function(){
+            //     $('#answer_text').show();
+            // })
+        })
+    </script>
 @endsection()

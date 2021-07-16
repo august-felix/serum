@@ -17,21 +17,74 @@ class IndexController extends Controller
         return view('index');
     }
     public function prequiz(){
+        $next = 'pre-quiz-1';
+        $before = '/';
+        return view('prequiz', compact('next', 'before'));
+    }
+    public function prequiz1(){
         $next = 'interview';
-        return view('prequiz', compact('next'));
+        $before = 'pre-quiz';
+        return view('prequiz1', compact('next', 'before'));
     }
 
     public function interview()
     {
         $next = 'quz-tests';
-        return view('interview', compact('next'));
+        return view('interview', compact('next' ));
     }
 
     public function diagnosis(){
-        $next = 'orders';
+        $next = 'stage';
         return view('diagnosis', compact('next'));
     }
+    public function diagnosis1 (){
+        $next = 'stage';
+        return view('diagnosis-answer', compact('next'));
+    }
 
+    public function stage(){
+        $next = 'quiz-1';
+        return view('stage', compact('next'));
+    }
+    public function quiz_1(){
+        $next = 'answer-1';
+        return view('quiz1', compact('next'));
+    }
+    public function answer_1(){
+        $next = 'orders';
+        return view('answer1', compact('next'));
+    }
+    public function quiz_2(){
+        $next = 'answer-2';
+        return view('quiz2', compact('next'));
+    }
+    public function answer_2(){
+        $next = 'quiz-3';
+        return view('answer2', compact('next'));
+    }
+    public function quiz_3(){
+        $next = 'answer-3';
+        return view('quiz3', compact('next'));
+    }
+    public function answer_3(){
+        $next = 'case-interview';
+        return view('answer3', compact('next'));
+    }
+
+    public function page6(){
+        $next = 'page7';
+        return view('page6', compact('next'));
+    }
+
+    public function page6_fact(){
+        $next = 'page7';
+        return view('page6-fact', compact('next'));
+    }
+
+    public function page7(){
+        $next = 'lasttest';
+        return view('page7', compact('next'));
+    }
 //    public function introduction()
 //    {
 //        $next = 'quz-tests';
@@ -50,7 +103,7 @@ class IndexController extends Controller
                 TestData::create($data);
             }
         }
-        return redirect()->route('tests');
+        return redirect()->route('tests', ['flag' => true]);
     }
     public function complete_answer_2(Request $request){
         TestData::truncate();
@@ -64,12 +117,11 @@ class IndexController extends Controller
                 TestData::create($data);
             }
         }
-        return redirect()->route('lasttest');
+        return redirect()->route('lasttest', ['flag' => true]);
     }
     public function complete_drag(){
         DragData::truncate();
         $dragdata = Drags::all();
-
         foreach ($dragdata as $data) {
             if($data->prompt != ""){
                 if(strpos($data->prompt, 'Incorrect') !== 0) {
@@ -80,11 +132,12 @@ class IndexController extends Controller
                 }
             }
         }
-        return redirect()->route('orders');
+        return redirect()->route('orders', ['flag' => true]);
     }
     public function tests()
     {
         $next = 'diagnosis';
+        $flag = false;
         $returndata = [];
         $testData = TestData::where('visible', '1')->get();
         foreach ($testData as $data) {
@@ -92,7 +145,7 @@ class IndexController extends Controller
             $d['data']= $data->test;
             array_push($returndata, $d);
         }
-        return view('tests', compact('next', 'returndata'));
+        return view('tests', compact('next', 'returndata', 'flag'));
     }
 
     public function quz(){
@@ -101,7 +154,7 @@ class IndexController extends Controller
     }
 
     public function lasttest(){
-        $next = "quz";
+        $next = "quiz-2";
         $returndata = [];
         $testData = TestData::where('visible', '2')->get();
         if(count($testData) > 0){
@@ -116,7 +169,7 @@ class IndexController extends Controller
     }
 
     public function orders(){
-        $next = 'lasttest';
+        $next = 'page6';
         $returndata = [];
         $dragdata = DragData::all();
         foreach ($dragdata as $data) {
@@ -127,7 +180,7 @@ class IndexController extends Controller
     }
 
     public function caseInterview(){
-        $next = "caseInterview";
+        $next = "case-interview";
         return view('case', compact('next'));
     }
 
@@ -287,6 +340,14 @@ class IndexController extends Controller
             ->get();
         return response()->json($tests);
     }
+    public function searchDia(Request $request){
+        $key = $request->key;
+        $tests = Diagnosis::query()
+            ->where('name', 'LIKE', "%{$key}%")
+            ->take(30)
+            ->get();
+        return response()->json($tests);
+    }
     public function searchDrag(Request $request)
     {
         $key = $request->key;
@@ -343,16 +404,16 @@ class IndexController extends Controller
 
     public function deleteTest($testId){
         TestData::where('test_id', $testId)->delete();
-        return redirect()->route('tests');
+        return redirect()->route('tests', ['flag' => true]);
     }
     public function deleteTest2($testId){
         TestData::where('test_id', $testId)->delete();
-        return redirect()->route('lasttest');
+        return redirect()->route('lasttest' , ['flag' => true]);
     }
 
     public function deleteDrag($dragId){
         DragData::where('drag_id', $dragId)->delete();
-        return redirect()->route('orders');
+        return redirect()->route('orders', ['flag' => true]);
     }
 
 }

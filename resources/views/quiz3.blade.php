@@ -95,7 +95,7 @@
             list-style-type: none;
         }
 
-        .question li:hover h5 {
+        .question li:hover p {
             color: #6bc5d0;
             cursor: pointer;
         }
@@ -105,6 +105,14 @@
             border-color: #6bc5d0;
         }
 
+        .answer-section {
+            display: none;
+            color: #0000bd;
+            font-weight: bold;
+        }
+        #answer_text {
+            display: none;
+        }
     </style>
 @endsection()
 @section('content')
@@ -115,43 +123,44 @@
                 <div class="card-body bg-gray-100">
                     <div class="row">
                         <div class="col-md-12">
-                            <p>EDUCATIONAL IMPACT CHALLENGE</p>
-                            <div class="mb-3">
+                            <div>
                                 <audio controls autoplay>
-                                    <source src="https://serum-myeloma.s3.amazonaws.com/Audio/02v2.mp3" type="audio/mp3">
+                                    <source src="https://serum-myeloma.s3.amazonaws.com/Audio/24.mp3"
+                                            type="audio/mp3">
                                 </audio>
                             </div>
                             <div class="mt-4">
                                 <div class="d-flex align-items-center">
-                                    <p>Question 1. According to the 2021 National Comprehensive Cancer Network
-                                        guidelines for MM,
-                                        which of the following are preferred imaging modalities for the detection of
-                                        bone lesions during the diagnostic workup of suspected MM?</p>
+                                    <p>Question 3. Which of the following options for third-line therapy is
+                                        FDA-approved and a category 1 preferred option for MM for patients who have
+                                        previously received lenalidomide and a protease inhibitor, per the 2021 NCCN
+                                        guidelines? </p>
                                 </div>
                                 <hr>
                                 <ul class="question">
                                     <li class="d-flex align-items-center mb-3">
                                         <button class="btn btn-secondary">A</button>
-                                        <p class="m-0 px-3">Skeletal survey with conventional X-ray</p>
+                                        <p class="m-0 px-3">IsaPd (isatuximab/pomalidomide/dexamethasone) </p>
                                     </li>
                                     <li class="d-flex align-items-center mb-3">
                                         <button class="btn btn-secondary">B</button>
-                                        <p class="m-0 px-3">Whole body low dose CT</p>
+                                        <p class="m-0 px-3">IPd (ixazomib/pomalidomide/dexamethasone)</p>
                                     </li>
                                     <li class="d-flex align-items-center mb-3">
                                         <button class="btn btn-secondary">C</button>
-                                        <p class="m-0 px-3">Fluorodeoxyglucose (FDG)-positron emission tomography
-                                            (PET)/CT</p>
+                                        <p class="m-0 px-3">EloPd (elotuzumab/pomalidomide/dexamethasone)</p>
                                     </li>
                                     <li class="d-flex align-items-center mb-3">
                                         <button class="btn btn-secondary">D</button>
-                                        <p class="m-0 px-3">B and C only </p>
+                                        <p class="m-0 px-3">KPd (carfilzomib/pomalidomide/dexamethasone)</p>
                                     </li>
-                                    <li class="d-flex align-items-center mb-3">
-                                        <button class="btn btn-secondary">E</button>
-                                        <p class="m-0 px-3">A, B, and C</p>
+                                    <li class="d-flex justify-content-end align-items-right mb-3">
+{{--                                        <a class="btn btn-info mr-3" id="answer_text" href="{{route('answer-3')}}">Answer Text</a>--}}
+{{--                                        <a class="btn btn-success answer" href="{{$next}}">Submit Answer</a>--}}
+{{--                                        <button class="btn btn-success answer" data-id="quiz-5">Answer Text</button>--}}
                                     </li>
                                 </ul>
+
                             </div>
 
                         </div>
@@ -160,8 +169,18 @@
             </div>
         </div>
     </div>
-{{--    @include('stepbar')--}}
-    @include('next')
+    @include('stepbar')
 @endsection()
 @section('footer_script')
+    <script>
+        $(function () {
+            // $('.answer').click(function () {
+            //     var id = "#" + $(this).data('id');
+            //     $(id).slideToggle();
+            // });
+            // $('.question li').click(function(){
+            //     $('#answer_text').show();
+            // })
+        })
+    </script>
 @endsection()

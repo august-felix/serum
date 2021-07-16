@@ -7,7 +7,7 @@
 
         .progressbar li {
             list-style-type: none;
-            width: 12%;
+            width: 8%;
             float: left;
             font-size: 18px;
             position: relative;
@@ -97,23 +97,29 @@
 @endsection()
 @section('content')
     <div class="row pt-5">
+
         <div class="col-md-12 main-section">
             <div class="card border-0 card-tests">
                 <div class="card-body bg-gray-100">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="title">Tests</div>
+{{--                            <div class="title">Tests</div>--}}
                             <div class="mt-3 p-3 d-flex justify-content-between">
-                                <audio controls autoplay>
+                                <audio controls <?php if(Request::get('flag') == false) echo "autoplay" ?>>
                                     <source src="https://serum-myeloma.s3.amazonaws.com/Audio/08.mp3" type="audio/mp3">
                                 </audio>
                                 <form class="d-flex m-0" method="post" action="/complete-answer">
                                     {{ csrf_field() }}
                                     <input type="hidden" name="visible" value="1"/>
-                                <button type="submit" class="btn btn-primary">Reveal complete answers</button>
+                                    <button type="submit" class="btn btn-primary">Reveal complete answers</button>
                                 </form>
                             </div>
-                            <div class="form-group">
+                            <div class="mt-3">
+                                <p class="px-3">PLEASE ORDER ALL APPROPRIATE DIAGNOSTIC TESTS, YOU WILL BE SHOWN THE TEST RESULTS AND REFERENCE RANGES.<sup>2</sup></p>
+                            </div>
+
+
+                            <div class="form-group mt-3">
                                 <input class="form-control" type="text" name="search" id="search"/>
                             </div>
                             <div class="bg-white shadow" id="result">
@@ -131,8 +137,8 @@
                                         <?php foreach($returndata as $data) { ?>
                                             <tr>
                                                 <td>{{$data['data']->name}}</td>
-                                                <td>{{$data['data']->prompt}}</td>
-                                                <td>{{$data['data']->result1}}</td>
+                                                <td>{!! $data['data']->prompt !!}</td>
+                                                <td>{!! $data['data']->result1 !!}</td>
                                                 <td class="text-center"><a href="/deleteTest/{{$data['data']->id}}"><i class="fa fa-trash"></i></a></td>
                                             </tr>
                                         <?php } ?>

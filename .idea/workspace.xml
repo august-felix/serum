@@ -2,17 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="320942b7-a4f6-491d-af50-4e393dca1fb8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/diagnosis.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/lasttest.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/answer1.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/answer2.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/answer3.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/diagnosis-answer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/next.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/page6-fact.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/page6.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/page7.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/prequiz1.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/quiz1.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/quiz2.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/quiz3.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/stage.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/DragData.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/DragData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/sb-admin-2.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/sb-admin-2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/sb-admin-2.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/sb-admin-2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/case.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/case.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/diagnosis.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/diagnosis.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/interview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/interview.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/introduction.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/introduction.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/lasttest.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lasttest.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/orders.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/orders.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/prequiz.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/prequiz.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/quiz.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/quiz.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/stepbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/stepbar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/tests.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tests.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/upload.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/upload.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -213,7 +232,19 @@
       <workItem from="1625541028419" duration="18000" />
       <workItem from="1625639273118" duration="1310000" />
       <workItem from="1625683770675" duration="18602000" />
-      <workItem from="1625816093653" duration="1825000" />
+      <workItem from="1625816093653" duration="1915000" />
+      <workItem from="1625946646493" duration="3359000" />
+      <workItem from="1626009820690" duration="8195000" />
+      <workItem from="1626055029655" duration="2000" />
+      <workItem from="1626056820301" duration="11442000" />
+      <workItem from="1626094679756" duration="10662000" />
+      <workItem from="1626185342121" duration="9358000" />
+      <workItem from="1626230351076" duration="5343000" />
+      <workItem from="1626276160803" duration="1517000" />
+      <workItem from="1626294311353" duration="1264000" />
+      <workItem from="1626321848134" duration="10037000" />
+      <workItem from="1626369020764" duration="57000" />
+      <workItem from="1626461625805" duration="2697000" />
     </task>
     <servers />
   </component>

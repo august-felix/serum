@@ -61,12 +61,16 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 body {
     margin: 0;
     font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    font-size: 1rem;
+    font-size: 1.15rem;
     font-weight: 400;
     line-height: 1.5;
     color: #858796;
     text-align: left;
     background-color: #fff;
+}
+
+.bold{
+    font-weight:bold;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -11344,7 +11348,7 @@ a:focus {
 
 @media (min-width: 768px) {
     .sidebar {
-        width: 50rem !important;
+        width: 40rem !important;
         /*width: 0rem !important;*/
     }
 
@@ -12143,7 +12147,6 @@ body.sidebar-toggled footer.sticky-footer {
 .title{
     color: #1d1d7a;
     font-weight: 700;
-    font-size: 35px;
 }
 .sub-content {
     font-size: 16px;
@@ -12158,6 +12161,7 @@ body.sidebar-toggled footer.sticky-footer {
 .nav-tabs li a {
     color: #858796;
     font-weight: bold;
+    font-size: 1.1rem
 }
 
 .nav-tabs li.active a {
@@ -12168,4 +12172,10 @@ body.sidebar-toggled footer.sticky-footer {
     display: none;
     border: 0px !important;
 }
-
+.question li.active{
+    color: #6bc5d0;
+}
+.question li.active button{
+    background: #6bc5d0;
+    border-color: #6bc5d0;
+}

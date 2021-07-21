@@ -7,7 +7,7 @@
 
         .progressbar li {
             list-style-type: none;
-            width: 8%;
+            width: 7%;
             float: left;
             font-size: 18px;
             position: relative;
@@ -105,12 +105,10 @@
                                 </select>
                             </div>
                             <div class="mt-3 ml-5">
-                                <p>The correct stage is III due to serum β2-microglobulin >5.5 mg/L (5.7 mg/L); high risk
-                                    cytogenetics [t(4;14)]; and elevated serum lactate dehydrogenase level (340 U/L).<sup>3</sup></p>
-                                <p class="mt-3 ml-1">
-                                    ●	The Revised International Staging System (R-ISS) is recommended for risk stratification and prognostication<sup>3,12</sup>
-                                </p>
                                 <div class="mt-3 stage" id="stage1">
+                                    <p class="mt-3 ml-1">
+                                        ●	The Revised International Staging System (R-ISS) is recommended for risk stratification and prognostication<sup>3,12</sup>
+                                    </p>
                                     <p class="mt-3 ml-1">
                                         ●	Stage I: All of the following:
                                     </p>
@@ -129,10 +127,18 @@
                                 </div>
                                 <div class="mt-3 stage" id="stage2">
                                     <p class="mt-3 ml-1">
+                                        ●	The Revised International Staging System (R-ISS) is recommended for risk stratification and prognostication<sup>3,12</sup>
+                                    </p>
+                                    <p class="mt-3 ml-1">
                                         ●	Stage II: Not fitting Stage I or III
                                     </p>
                                 </div>
                                 <div class="mt-3 stage" id="stage3">
+                                    <p>The correct stage is III due to serum β2-microglobulin >5.5 mg/L (5.7 mg/L); high risk
+                                        cytogenetics [t(4;14)]; and elevated serum lactate dehydrogenase level (340 U/L).<sup>3</sup></p>
+                                    <p class="mt-3 ml-1">
+                                        ●	The Revised International Staging System (R-ISS) is recommended for risk stratification and prognostication<sup>3,12</sup>
+                                    </p>
                                     <p class="mt-3 ml-1">
                                         ●	Stage III: Both of the following:
                                     </p>

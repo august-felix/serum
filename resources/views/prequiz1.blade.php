@@ -7,7 +7,7 @@
 
     .progressbar li {
         list-style-type: none;
-        width: 8%;
+        width: 7%;
         float: left;
         font-size: 18px;
         position: relative;
@@ -104,6 +104,10 @@
         background: #6bc5d0;
         border-color: #6bc5d0;
     }
+    .btn-continue{
+        display:none;
+    }
+
 
 </style>
 @endsection()

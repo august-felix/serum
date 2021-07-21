@@ -157,4 +157,9 @@
     </div>
 @endsection()
 @section('footer_script')
+    <script>
+        $(function(){
+            audioElement.play();
+        })
+    </script>
 @endsection()

@@ -104,11 +104,9 @@
             background: #6bc5d0;
             border-color: #6bc5d0;
         }
-        .btn-continue{
-            display: none;
+        .card-tests {
+            min-height: 60vh;
         }
-
-
     </style>
 @endsection()
 @section('content')
@@ -116,46 +114,22 @@
     <div class="row pt-5">
         <div class="col-md-12 main-section">
             <div class="card border-0">
-                <div class="card-body bg-gray-100">
+                <div class="card-body bg-gray-100 card-tests ">
                     <div class="row">
                         <div class="col-md-12">
-                            <p>EDUCATIONAL IMPACT CHALLENGE</p>
-                            <div class="mb-3">
-                                <audio controls autoplay>
-                                    <source src="https://serum-myeloma.s3.amazonaws.com/Audio/02v2.mp3" type="audio/mp3">
-                                </audio>
-                            </div>
                             <div class="mt-4">
-                                <div class="d-flex align-items-center">
-                                    <p>Question 1. According to the 2021 National Comprehensive Cancer Network
-                                        guidelines for MM,
-                                        which of the following are preferred imaging modalities for the detection of
-                                        bone lesions during the diagnostic workup of suspected MM?</p>
+                                <div class="answer-section" id="quiz-3">
+                                    <div>
+                                        <audio controls autoplay>
+                                            <source src="https://serum-myeloma.s3.amazonaws.com/Audio/04.mp3"
+                                                    type="audio/mp3">
+                                        </audio>
+                                    </div>
+                                    Answer text: The correct answer is D. According to the 2021 National Comprehensive
+                                    Cancer Network guidelines for multiple myeloma,<sup>2</sup> the preferred imaging modalities
+                                    during the diagnostic workup for MM are whole body low dose CT and FDG PET/CT.
+                                    Skeletal survey is significantly less sensitive at detecting bone lesions.<sup>10,11</sup>
                                 </div>
-                                <hr>
-                                <ul class="question">
-                                    <li class="d-flex align-items-center mb-3">
-                                        <button class="btn btn-secondary">A</button>
-                                        <p class="m-0 px-3">Skeletal survey with conventional X-ray</p>
-                                    </li>
-                                    <li class="d-flex align-items-center mb-3">
-                                        <button class="btn btn-secondary">B</button>
-                                        <p class="m-0 px-3">Whole body low dose CT</p>
-                                    </li>
-                                    <li class="d-flex align-items-center mb-3">
-                                        <button class="btn btn-secondary">C</button>
-                                        <p class="m-0 px-3">Fluorodeoxyglucose (FDG)-positron emission tomography
-                                            (PET)/CT</p>
-                                    </li>
-                                    <li class="d-flex align-items-center mb-3">
-                                        <button class="btn btn-secondary">D</button>
-                                        <p class="m-0 px-3">B and C only </p>
-                                    </li>
-                                    <li class="d-flex align-items-center mb-3">
-                                        <button class="btn btn-secondary">E</button>
-                                        <p class="m-0 px-3">A, B, and C</p>
-                                    </li>
-                                </ul>
                             </div>
 
                         </div>
@@ -164,8 +138,15 @@
             </div>
         </div>
     </div>
-{{--    @include('stepbar')--}}
-    @include('next')
+    @include('stepbar')
 @endsection()
 @section('footer_script')
+    <script>
+        $(function () {
+            $('.answer').click(function () {
+                var id = "#" + $(this).data('id');
+                $(id).slideToggle();
+            });
+        })
+    </script>
 @endsection()

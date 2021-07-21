@@ -16,7 +16,15 @@ use App\Http\Controllers\IndexController;
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/pre-quiz', [IndexController::class, 'prequiz'])->name('prequiz');
+
+Route::get('/after-quiz', [IndexController::class, 'afterquiz'])->name('afterquiz');
+Route::get('/after-quiz-answer',[IndexController::class, 'after_answer_1'])->name('after-answer-1');
+
 Route::get('/pre-quiz-1', [IndexController::class, 'prequiz1'])->name('prequiz1');
+
+Route::get('/after-quiz-1', [IndexController::class, 'afterquiz1'])->name('afterquiz1');
+Route::get('/after-quiz-answer-1',[IndexController::class, 'after_answer_2'])->name('after-answer-2');
+
 Route::get('/interview',[IndexController::class, 'interview'])->name('interview');
 Route::get('/introduction',[IndexController::class, 'introduction'])->name('introduction');
 Route::get('/quz-tests',[IndexController::class, 'tests'])->name('tests');

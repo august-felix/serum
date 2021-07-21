@@ -44,7 +44,7 @@
     $('.question li').click(function(){
         $('.question li*').removeClass("active");
         $(this).addClass("active");
-        $('.question li button')
+        $('.btn-continue').show();
     })
 
     // Close any open menu accordions when window is resized below 768px

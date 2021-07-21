@@ -104,11 +104,6 @@
             background: #6bc5d0;
             border-color: #6bc5d0;
         }
-        .btn-continue{
-            display: none;
-        }
-
-
     </style>
 @endsection()
 @section('content')
@@ -119,43 +114,31 @@
                 <div class="card-body bg-gray-100">
                     <div class="row">
                         <div class="col-md-12">
-                            <p>EDUCATIONAL IMPACT CHALLENGE</p>
-                            <div class="mb-3">
-                                <audio controls autoplay>
-                                    <source src="https://serum-myeloma.s3.amazonaws.com/Audio/02v2.mp3" type="audio/mp3">
-                                </audio>
-                            </div>
                             <div class="mt-4">
-                                <div class="d-flex align-items-center">
-                                    <p>Question 1. According to the 2021 National Comprehensive Cancer Network
-                                        guidelines for MM,
-                                        which of the following are preferred imaging modalities for the detection of
-                                        bone lesions during the diagnostic workup of suspected MM?</p>
+                                <div class="answer-section" id="quiz-3">
+                                    <div>
+                                        <audio controls autoplay>
+                                            <source src="https://serum-myeloma.s3.amazonaws.com/Audio/06.mp3"
+                                                    type="audio/mp3">
+                                        </audio>
+                                    </div>
+                                    Answer text: The correct answer is Option A. The 2021 NCCN guidelines<sup>2</sup>
+                                    recommend
+                                    that all MM patients receiving primary myeloma therapy receive bisphosphonates
+                                    (category 1 evidence) or denosumab (preferred in patients with renal insufficiency).
+                                    <br><br>
+                                    Option B is incorrect. The guidelines recommend initiating recombinant human
+                                    erythropoietin for myeloma-associated anemia (hemoglobin level <10.0 g/dL) if other
+                                    causes of anemia have been excluded.
+                                    <br><br>
+                                    Option C is incorrect. The guidelines note that intravenous immunoglobulin
+                                    prophylaxis is not routinely recommended in MM but is recommended in patients with
+                                    low IgG levels (<400-500 mg of IgG) and recurrent severe infections.
+                                    <br><br>
+                                    Option D is incorrect. The guidelines recommend aspirin only in patients undergoing
+                                    immunomodulator therapy who are at low risk of thrombotic events. Higher-risk
+                                    patients should receive therapeutic anticoagulation.
                                 </div>
-                                <hr>
-                                <ul class="question">
-                                    <li class="d-flex align-items-center mb-3">
-                                        <button class="btn btn-secondary">A</button>
-                                        <p class="m-0 px-3">Skeletal survey with conventional X-ray</p>
-                                    </li>
-                                    <li class="d-flex align-items-center mb-3">
-                                        <button class="btn btn-secondary">B</button>
-                                        <p class="m-0 px-3">Whole body low dose CT</p>
-                                    </li>
-                                    <li class="d-flex align-items-center mb-3">
-                                        <button class="btn btn-secondary">C</button>
-                                        <p class="m-0 px-3">Fluorodeoxyglucose (FDG)-positron emission tomography
-                                            (PET)/CT</p>
-                                    </li>
-                                    <li class="d-flex align-items-center mb-3">
-                                        <button class="btn btn-secondary">D</button>
-                                        <p class="m-0 px-3">B and C only </p>
-                                    </li>
-                                    <li class="d-flex align-items-center mb-3">
-                                        <button class="btn btn-secondary">E</button>
-                                        <p class="m-0 px-3">A, B, and C</p>
-                                    </li>
-                                </ul>
                             </div>
 
                         </div>
@@ -164,8 +147,15 @@
             </div>
         </div>
     </div>
-{{--    @include('stepbar')--}}
-    @include('next')
+    @include('stepbar')
 @endsection()
 @section('footer_script')
+    <script>
+        $(function () {
+            $('.answer').click(function () {
+                var id = "#" + $(this).data('id');
+                $(id).slideToggle();
+            });
+        })
+    </script>
 @endsection()

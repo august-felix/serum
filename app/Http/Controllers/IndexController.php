@@ -21,6 +21,25 @@ class IndexController extends Controller
         $before = '/';
         return view('prequiz', compact('next', 'before'));
     }
+    public function afterquiz(){
+        $next = 'after-quiz-answer';
+//        $before = '/answer-3';
+        return view('afterquiz', compact('next', ));
+    }
+    public function afterquiz1(){
+        $next = 'after-quiz-answer-1';
+//        $before = '/answer-3';
+        return view('afterquiz1', compact('next', ));
+    }
+    public function after_answer_1(){
+        $next = 'after-quiz-1';
+        return view('after_answer1', compact('next'));
+    }
+    public function after_answer_2(){
+        $next = 'case-interview';
+        return view('after_answer2', compact('next'));
+    }
+
     public function prequiz1(){
         $next = 'interview';
         $before = 'pre-quiz';
@@ -67,7 +86,7 @@ class IndexController extends Controller
         return view('quiz3', compact('next'));
     }
     public function answer_3(){
-        $next = 'case-interview';
+        $next = 'after-quiz';
         return view('answer3', compact('next'));
     }
 
